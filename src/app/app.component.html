@@ -3,92 +3,136 @@
 
 <div class="apldg-body-overlay"></div>
 <!-- Preloader -->
-<div class="fixed inset-0 z-50 flex items-center justify-center bg-navy bg-opacity-90 backdrop-blur-sm transition-opacity duration-500" id="preloader">
-    <div class="relative">
-        <!-- Outer Ring -->
-        <div class="w-24 h-24 rounded-full border-4 border-t-red-600 border-r-orange-600 border-b-red-600 border-l-orange-600 animate-spin"></div>
-        
-        <!-- Middle Ring -->
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full border-4 border-t-transparent border-r-red-600 border-b-orange-600 border-l-transparent animate-spin-reverse"></div>
-        
-        <!-- Inner Ring -->
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full border-4 border-t-red-600 border-r-orange-600 border-b-red-600 border-l-orange-600 animate-spin"></div>
-        
-        <!-- Center Dot -->
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-white rounded-full animate-pulse"></div>
-        
-        <!-- Particles -->
-        <div class="absolute inset-0 animate-particle-1">
-            <div class="absolute w-1 h-1 bg-orange-600 rounded-full"></div>
+<div class="fixed inset-0 z-50 flex items-center justify-center transition-all duration-500 ease-in-out" id="preloader">
+    <!-- Dynamic Gradient Background -->
+    <div class="absolute inset-0 bg-[#131428] overflow-hidden">
+        <div class="absolute inset-0 opacity-80 animate-gradient-shift">
+            <div class="absolute inset-0 bg-gradient-to-tr from-red-600/40 via-orange-600/30 to-red-600/40"></div>
+            <div class="absolute inset-0 bg-gradient-to-bl from-orange-600/30 via-red-600/20 to-orange-600/30"></div>
         </div>
-        <div class="absolute inset-0 animate-particle-2">
-            <div class="absolute w-1 h-1 bg-red-600 rounded-full"></div>
+    </div>
+
+    <!-- Logo and Spinner Container -->
+    <div class="relative flex flex-col items-center">
+        <!-- Logo Container with Reveal Animation -->
+        <div class="relative w-32 h-32 animate-logo-reveal">
+            <img src="assets/img/logo.png" alt="Synoptiq Globle" class="w-full h-full object-contain">
+            
+            <!-- Orbital Rings -->
+            <div class="absolute inset-0 animate-spin-slow">
+                <div class="absolute inset-[-10px] border-2 border-orange-600/20 rounded-full"></div>
+            </div>
+            <div class="absolute inset-0 animate-spin-reverse-slow">
+                <div class="absolute inset-[-20px] border-2 border-red-600/20 rounded-full"></div>
+            </div>
+            
+            <!-- Glowing Particles -->
+            <div class="absolute inset-0">
+                <div class="absolute w-2 h-2 bg-orange-600 rounded-full blur-sm animate-particle-orbit-1"></div>
+                <div class="absolute w-2 h-2 bg-red-600 rounded-full blur-sm animate-particle-orbit-2"></div>
+            </div>
         </div>
-        <div class="absolute inset-0 animate-particle-3">
-            <div class="absolute w-1 h-1 bg-white rounded-full"></div>
+        
+        <!-- Loading Text -->
+        <div class="mt-8 text-white/90 font-semibold text-lg tracking-wider animate-pulse">
+            Loading<span class="animate-ellipsis">...</span>
         </div>
     </div>
 </div>
 
 <style>
-    @keyframes spin-reverse {
-        from {
-            transform: translate(-50%, -50%) rotate(0deg);
+    @keyframes gradient-shift {
+        0%, 100% {
+            transform: scale(1.1) rotate(0deg);
         }
+        50% {
+            transform: scale(1.5) rotate(180deg);
+        }
+    }
+
+    @keyframes logo-reveal {
+        0% {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes spin-slow {
         to {
-            transform: translate(-50%, -50%) rotate(-360deg);
+            transform: rotate(360deg);
         }
     }
-    
-    @keyframes particle-1 {
+
+    @keyframes spin-reverse-slow {
+        to {
+            transform: rotate(-360deg);
+        }
+    }
+
+    @keyframes particle-orbit-1 {
         0%, 100% {
-            transform: rotate(0deg) translateX(12px);
+            transform: rotate(0deg) translateX(50px) rotate(0deg);
         }
-        50% {
-            transform: rotate(180deg) translateX(12px);
+        100% {
+            transform: rotate(360deg) translateX(50px) rotate(-360deg);
         }
     }
-    
-    @keyframes particle-2 {
+
+    @keyframes particle-orbit-2 {
         0%, 100% {
-            transform: rotate(120deg) translateX(12px);
+            transform: rotate(-90deg) translateX(50px) rotate(90deg);
         }
-        50% {
-            transform: rotate(300deg) translateX(12px);
-        }
-    }
-    
-    @keyframes particle-3 {
-        0%, 100% {
-            transform: rotate(240deg) translateX(12px);
-        }
-        50% {
-            transform: rotate(420deg) translateX(12px);
+        100% {
+            transform: rotate(270deg) translateX(50px) rotate(-270deg);
         }
     }
-    
-    .animate-spin-reverse {
-        animation: spin-reverse 3s linear infinite;
+
+    @keyframes ellipsis {
+        0% { opacity: 0; }
+        25% { opacity: 0.25; }
+        50% { opacity: 0.5; }
+        75% { opacity: 0.75; }
+        100% { opacity: 1; }
     }
-    
-    .animate-particle-1 {
-        animation: particle-1 3s linear infinite;
+
+    .animate-gradient-shift {
+        animation: gradient-shift 8s ease-in-out infinite;
     }
-    
-    .animate-particle-2 {
-        animation: particle-2 3s linear infinite;
+
+    .animate-logo-reveal {
+        animation: logo-reveal 1s ease-out forwards;
     }
-    
-    .animate-particle-3 {
-        animation: particle-3 3s linear infinite;
+
+    .animate-spin-slow {
+        animation: spin-slow 12s linear infinite;
     }
-    
+
+    .animate-spin-reverse-slow {
+        animation: spin-reverse-slow 12s linear infinite;
+    }
+
+    .animate-particle-orbit-1 {
+        animation: particle-orbit-1 8s linear infinite;
+    }
+
+    .animate-particle-orbit-2 {
+        animation: particle-orbit-2 8s linear infinite;
+    }
+
+    .animate-ellipsis {
+        animation: ellipsis 1.5s steps(4, end) infinite;
+    }
+
     #preloader {
         opacity: 1;
         visibility: visible;
-        transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+        backdrop-filter: blur(8px);
     }
-    
+
     #preloader.hidden {
         opacity: 0;
         visibility: hidden;
@@ -97,7 +141,9 @@
 <!-- Preloader End -->
 
 <!-- ScrollTop Button -->
-<a href="#" class="apldg-scroll-top"><i class="fas fa-angle-double-up"></i></a>
+<a href="#" class="fixed bottom-[72px] portrait:bottom-[72px] landscape:bottom-8 right-8 z-50 flex items-center justify-center w-12 h-12 bg-gradient-to-r from-red-600 to-orange-600 text-white rounded-full shadow-lg hover:shadow-[0_0_20px_rgba(234,88,12,0.6)] hover:scale-110 transition-all duration-300 group">
+    <i class="fas fa-angle-up text-xl group-hover:-translate-y-1 transition-transform"></i>
+</a>
 
 <!-- Header Section -->
 <header id="header" class="fixed w-full z-50 backdrop-blur-lg bg-white/5">
