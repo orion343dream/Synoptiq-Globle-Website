@@ -8,6 +8,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   isScrolled = false;
   isLoading = true;
+  mobileMenuOpen = false;
 
   ngOnInit() {
     // Simulate loading time
@@ -27,5 +28,9 @@ export class AppComponent implements OnInit {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  }
+
+  toggleMobileMenu(): void {
+    this.mobileMenuOpen = !this.mobileMenuOpen;
   }
 }
