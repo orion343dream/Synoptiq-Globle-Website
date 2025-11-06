@@ -9,17 +9,194 @@
 	--ui-font: 'Red Hat Display', sans-serif;
 }
 
-/* Small helpers using Tailwind's @apply where appropriate */
+/* Color theme variables (global) */
+:root {
+    --background-color: #05071e; /* main website background */
+    --surface-color: #131428;    /* surface / boxed elements */
+
+    /* Light / Dark presets */
+    --light-background-bg: #0c114a;
+    --light-background-surface: #131b76;
+
+    --dark-background-bg: #01020e;
+    --dark-background-surface: #252525;
+
+    /* Header specifics */
+    --header-container-bg: #1b1933;
+    --header-bg: rgba(255,255,255,0);
+}
+
+/* Preset classes to switch palettes per-section */
+.light-background {
+    --background-color: var(--light-background-bg);
+    --surface-color: var(--light-background-surface);
+}
+
+.dark-background {
+    --background-color: var(--dark-background-bg);
+    --surface-color: var(--dark-background-surface);
+}
+
+/* Apply the theme globally */
+html, body {
+    height: 100%;
+}
+body {
+    background-color: var(--background-color) !important;
+    color: #e6eefb;
+    font-family: var(--body-font);
+}
+
+/* Surface helper for cards, sections, footers */
+.surface {
+    background-color: var(--surface-color) !important;
+}
+
+/* Header container helper */
+#header .header-bg {
+    background-color: var(--header-container-bg) !important;
+    background: linear-gradient(90deg, var(--header-container-bg), rgba(27,25,51,0.9));
+}
+
+/* Make sections default to surface color unless overridden */
+section {
+    background-color: transparent; /* keep existing gradients where present */
+}
+
+/* Footer default to dark preset */
+.apldg-footer-section {
+    background-color: var(--dark-background-bg);
+}
+
+@layer utilities {
+    /* Custom animations */
+    .animate-float {
+        animation: float 6s ease-in-out infinite;
+    }
+    
+    .animate-float-delay-1 {
+        animation: float 6s ease-in-out infinite;
+        animation-delay: 2s;
+    }
+    
+    .animate-float-delay-2 {
+        animation: float 6s ease-in-out infinite;
+        animation-delay: 4s;
+    }
+    
+    .animate-fade-in {
+        animation: fadeIn 1s ease-in forwards;
+    }
+    
+    .animate-fade-in-up {
+        animation: fadeInUp 1s ease-out forwards;
+    }
+    
+    .animate-gradient {
+        background-size: 200% 200%;
+        animation: gradientMove 8s ease infinite;
+    }
+
+    .animate-glow {
+        animation: glow 6s ease-in-out infinite;
+    }
+
+    .animate-glow-delay {
+        animation: glow 6s ease-in-out infinite;
+        animation-delay: 3s;
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes glow {
+    0% {
+        opacity: 0.4;
+        transform: scale(1) translate(0, 0);
+    }
+    33% {
+        opacity: 0.6;
+        transform: scale(1.2) translate(20px, -10px);
+    }
+    66% {
+        opacity: 0.4;
+        transform: scale(0.9) translate(-20px, 10px);
+    }
+    100% {
+        opacity: 0.4;
+        transform: scale(1) translate(0, 0);
+    }
+}
+
+/* Small helpers (use plain CSS so Tailwind @apply is not required).
+     Prefer using Tailwind utility classes in markup; these helpers act as
+     safe fallbacks that use the theme variables. */
 .btn-primary {
-	@apply bg-primary text-white font-ui font-semibold py-3 px-6 rounded-full shadow-md;
+    background: linear-gradient(90deg, var(--light-background-bg, #0c114a), var(--surface-color, #131428));
+    color: #ffffff;
+    font-family: var(--ui-font);
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 .section-gradient {
-	@apply bg-gradient-to-br from-primary to-primary-dark;
+    background: linear-gradient(135deg, var(--background-color), var(--surface-color));
 }
 
 .container {
-	@apply mx-auto px-4;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 @import 'assets/css/animate.css';
 @import 'assets/css/fontawesome-all.css';

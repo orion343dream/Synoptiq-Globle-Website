@@ -23,56 +23,118 @@
 <a href="#" class="apldg-scroll-top"><i class="fas fa-angle-double-up"></i></a>
 
 <!-- Header Section -->
-<header class="apldg-header-section fixed w-full z-50 transition-shadow duration-300">
-	<div class="bg-gradient-to-r from-dark to-primary-dark">
-		<div class="container max-w-6xl mx-auto px-4">
-			<div class="flex items-center justify-between py-3">
-				<!-- Logo -->
-				<div class="flex items-center gap-4">
-					<a href="#" class="apldg-logo-wrapper inline-block" aria-label="Homepage">
-						<img src="assets/img/logo.png" alt="Synoptiq Globle" class="h-10 object-contain">
+<header id="header" class="w-full sticky top-4 z-50">
+	<div class="container mx-auto px-4">
+		<div class="relative">
+			<!-- Gradient background with rounded corners -->
+			<div class="absolute inset-0 bg-[#1b1933] rounded-full shadow-lg shadow-[#05071e]/50">
+				<!-- Subtle gradient overlay -->
+				<div class="absolute inset-0 bg-gradient-to-r from-[#131428]/50 to-[#0c114a]/50 rounded-full backdrop-blur-sm"></div>
+			</div>
+			
+			<!-- Content -->
+			<div class="relative flex items-center justify-between h-20 px-8">
+				<div class="w-48">
+					<a href="#" class="flex items-center">
+						<img src="assets/img/logo.png" alt="Synoptiq Globle" class="h-14 w-auto object-contain transition-transform hover:scale-105">
 					</a>
 				</div>
 
-				<!-- Desktop nav -->
-				<nav class="apldg-main-nav hidden md:flex items-center gap-6 font-ui uppercase text-sm text-gray-200">
-					<a class="nav-link hover:text-white transition" href="#apldg_banner">Home</a>
-					<a class="nav-link hover:text-white transition" href="#apldg_about">About Us</a>
-					<a class="nav-link hover:text-white transition" href="#apldg_service">Services</a>
-					<a class="nav-link hover:text-white transition" href="#apldg_technologies">Technologies</a>
-					<a class="nav-link hover:text-white transition" href="#apldg_certifications">Certifications</a>
+				<nav class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-center px-6">
+					<div class="flex items-center bg-[#131428]/70 rounded-full p-1.5 backdrop-blur-lg border border-[#252525]/10 w-full max-w-3xl justify-between shadow-inner shadow-[#01020e]/20">
+						<div class="w-16"></div> <!-- Spacer for visual balance -->
+						<div class="flex items-center justify-center gap-2 flex-1">
+							<a href="#apldg_banner" class="px-4 py-2 text-sm font-medium text-white/90 hover:text-white transition rounded-full hover:bg-[#131b76]/30">Home</a>
+							<a href="#apldg_about" class="px-4 py-2 text-sm font-medium text-white/90 hover:text-white transition rounded-full hover:bg-[#131b76]/30">About Us</a>
+							<a href="#apldg_service" class="px-4 py-2 text-sm font-medium text-white/90 hover:text-white transition rounded-full hover:bg-[#131b76]/30">Services</a>
+							<a href="#apldg_technologies" class="px-4 py-2 text-sm font-medium text-white/90 hover:text-white transition rounded-full hover:bg-[#131b76]/30">Technologies</a>
+							<a href="#apldg_certifications" class="px-4 py-2 text-sm font-medium text-white/90 hover:text-white transition rounded-full hover:bg-[#131b76]/30">Certifications</a>
+						</div>
+						<div class="w-16"></div> <!-- Spacer for visual balance -->
+					</div>
 				</nav>
 
-				<!-- Actions -->
-				<div class="apldg-header-right flex items-center gap-3">
-					<a href="#apldg_git" class="apldg-primary-btn btn-primary hidden sm:inline-block">Get In Touch</a>
-					<!-- Mobile hamburger -->
-					<button (click)="toggleMobileMenu()" aria-label="Open menu" class="md:hidden p-2 rounded-md text-gray-200 hover:text-white focus:outline-none">
-						<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+				<div class="w-48 flex items-center justify-end gap-4">
+					<a href="#apldg_git" class="hidden sm:inline-flex items-center px-5 py-2.5 rounded-full bg-gradient-to-r from-[#0c114a] to-[#131b76] text-white font-medium hover:shadow-lg hover:shadow-[#131b76]/25 transition-all duration-200 hover:scale-105 border border-[#252525]/10">
+						Get In Touch
+					</a>
+					<button (click)="toggleMobileMenu()" aria-label="Toggle menu" class="lg:hidden p-2 rounded-full text-white/90 hover:text-white focus:outline-none hover:bg-[#131b76]/20 transition-colors">
+						<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
 					</button>
 				</div>
 			</div>
 		</div>
 	</div>
 </header>
-<!-- Header Section End -->
 
-<!-- Mobile Menu (shown on small screens) -->
-<div *ngIf="mobileMenuOpen" class="apldg-mobile-menu fixed inset-0 z-40 md:hidden">
-	<div class="absolute inset-0 bg-black/60" (click)="toggleMobileMenu()" aria-hidden="true"></div>
-	<div class="relative bg-gradient-to-b from-dark to-primary-dark text-white h-full w-64 p-6">
-		<button (click)="toggleMobileMenu()" class="apldg-menu-close mb-6 p-2 rounded-md text-white focus:outline-none" aria-label="Close menu">
-			<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-		</button>
-		<a href="#apldg_banner" class="block mb-6"><img src="assets/img/logo.png" alt="Synoptiq Globle" class="h-10 object-contain"></a>
-		<ul class="flex flex-col gap-4 text-lg font-ui">
-			<li><a (click)="toggleMobileMenu()" class="nav-link" href="#apldg_banner">Home</a></li>
-			<li><a (click)="toggleMobileMenu()" class="nav-link" href="#apldg_about">About Us</a></li>
-			<li><a (click)="toggleMobileMenu()" class="nav-link" href="#apldg_service">Services</a></li>
-			<li><a (click)="toggleMobileMenu()" class="nav-link" href="#apldg_technologies">Technologies</a></li>
-			<li><a (click)="toggleMobileMenu()" class="nav-link" href="#apldg_certifications">Certifications</a></li>
-		</ul>
-	</div>
+<!-- Mobile menu -->
+<div *ngIf="mobileMenuOpen" class="fixed inset-0 z-40 lg:hidden">
+	<div class="absolute inset-0 bg-[#05071e]/80 backdrop-blur-sm" (click)="toggleMobileMenu()" aria-hidden="true"></div>
+	<aside class="absolute right-0 top-0 h-full w-80 bg-gradient-to-b from-[#1b1933] to-[#131428] text-white p-6 shadow-xl">
+		<div class="flex items-center justify-between mb-8">
+			<div class="flex items-center">
+				<img src="assets/img/logo.png" alt="logo" class="h-12 w-auto">
+			</div>
+			<button (click)="toggleMobileMenu()" class="p-2 rounded-full text-white/90 hover:text-white hover:bg-[#131b76]/20 transition-colors">
+				<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+			</button>
+		</div>
+		<div class="relative">
+			<div class="absolute -inset-1 bg-gradient-to-r from-[#0c114a] to-[#131b76] rounded-lg blur opacity-25"></div>
+			<nav class="relative bg-[#131428] rounded-lg p-1.5 border border-[#252525]/10">
+				<ul class="flex flex-col">
+					<li>
+						<a (click)="toggleMobileMenu()" href="#apldg_banner" class="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-[#131b76]/20 transition-colors">
+							<svg class="w-5 h-5 text-[#131b76]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+							</svg>
+							<span class="font-medium">Home</span>
+						</a>
+					</li>
+					<li>
+						<a (click)="toggleMobileMenu()" href="#apldg_about" class="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-[#131b76]/20 transition-colors">
+							<svg class="w-5 h-5 text-[#131b76]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+							</svg>
+							<span class="font-medium">About</span>
+						</a>
+					</li>
+					<li>
+						<a (click)="toggleMobileMenu()" href="#apldg_service" class="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-[#131b76]/20 transition-colors">
+							<svg class="w-5 h-5 text-[#131b76]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+							</svg>
+							<span class="font-medium">Services</span>
+						</a>
+					</li>
+					<li>
+						<a (click)="toggleMobileMenu()" href="#apldg_technologies" class="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-[#131b76]/20 transition-colors">
+							<svg class="w-5 h-5 text-[#131b76]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+							</svg>
+							<span class="font-medium">Technologies</span>
+						</a>
+					</li>
+					<li>
+						<a (click)="toggleMobileMenu()" href="#apldg_certifications" class="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-[#131b76]/20 transition-colors">
+							<svg class="w-5 h-5 text-[#131b76]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+							</svg>
+							<span class="font-medium">Certifications</span>
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class="mt-8">
+			<a (click)="toggleMobileMenu()" href="#apldg_git" class="flex items-center justify-center gap-2 w-full px-6 py-3 rounded-full bg-gradient-to-r from-[#0c114a] to-[#131b76] text-white font-medium hover:shadow-lg hover:shadow-[#131b76]/25 transition-all duration-200 border border-[#252525]/10">
+				<span>Get In Touch</span>
+				<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+				</svg>
+			</a>
+		</div>
+	</aside>
 </div>
 
 	<!-- Header Search Form -->
@@ -135,39 +197,191 @@
 	</div>
 	<!-- Header Sidebar Info End -->
 
-	<!-- Hero Slider -->
-	<section class="apldg-hero-slider-area" id="apldg_banner">
-		<span class="apldg-hero-vector-1"><img src="assets/img/slider/object-01.png" alt=""></span>
-		<span class="apldg-hero-vector-2"><img src="assets/img/slider/object-02.png" alt=""></span>
-		<span class="apldg-hero-vector-3"><img src="assets/img/slider/object-03.png" alt=""></span>
-		<span class="apldg-hero-vector-4"><img src="assets/img/slider/object-04.png" alt=""></span>
-		<div class="apldg-hero-slider">
-			<div class="apldg-hero-single-item">
-				<span class="apldg-hero-right-img apldg-responsive-vector-img"><img src="assets/img/slider/01.png" alt=""></span>
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-7 col-md-6 col-sm-8 offset-sm-2 offset-md-0">
-							<div class="apldg-hero-left">
-								<div class="apldg-headline">
-									<h1>We Secure and Amplify Your <span>Digital Presence</span></h1>
-								</div>
-								<div class="apldg-pera-txt">
-									<p>Synoptiq Infosolutions is a leading provider of cybersecurity solutions and digital marketing consultancy, empowering businesses to build secure foundations, gain visibility, and convert opportunities in the digital landscape. Our mission is to safeguard your data and enhance your online reach through innovative, tailored strategies that drive growth and protection.</p>
-								</div>
-								<!-- <div class="apldg-hero-form">
-									<form action="#">
-										<input type="email" placeholder="example@gmail.com">
-										<button type="submit">Subscribe Now</button>
-									</form>
-								</div> -->
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Hero Slider End -->
+   <!-- Hero Section -->
+<section id="apldg_banner" class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-blue-800 via-blue-900 to-orange-900">
+    <!-- Simple gradient overlays -->
+	<div class="absolute inset-0">
+		<!-- Main gradient overlay (no image) -->
+		<div class="absolute inset-0 bg-gradient-to-tr from-blue-700/40 to-orange-700/20"></div>
+
+		<!-- Subtle radial glows for depth (no grid image) -->
+		<div class="absolute -left-24 -top-24 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl"></div>
+		<div class="absolute -right-24 -bottom-24 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl"></div>
+	</div>
+
+    <div class="container mx-auto px-4 py-20 relative z-10">
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+            <!-- Left content -->
+            <div class="w-full lg:w-1/2 text-center lg:text-left relative">
+                <!-- Text backdrop glow -->
+                <div class="absolute -left-20 top-0 w-60 h-60 bg-indigo-500/10 rounded-full blur-3xl"></div>
+                
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in relative">
+                    We Secure and Amplify Your 
+                    <span class="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 text-transparent bg-clip-text animate-gradient">
+                        Digital Presence
+                    </span>
+                </h1>
+                <p class="text-gray-300 text-lg md:text-xl mb-8 animate-fade-in-up opacity-90 leading-relaxed">
+                    Empowering businesses with cutting-edge cybersecurity solutions and digital transformation strategies. We help you build secure foundations, gain visibility, and convert opportunities in the ever-evolving digital landscape.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 animate-fade-in-up">
+                    <a href="#apldg_git" class="group px-8 py-3 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white rounded-full font-semibold hover:shadow-[0_0_30px_rgba(139,92,246,0.6)] hover:scale-105 transition-all duration-300 inline-flex items-center gap-2">
+                        <span>Get Started</span>
+                        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        </svg>
+                    </a>
+                    <a href="#apldg_service" class="px-8 py-3 bg-white/5 backdrop-blur-sm border border-white/10 text-white rounded-full font-semibold hover:bg-white/10 hover:border-white/20 transition-all duration-300">
+                        Explore Services
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right content with floating illustration -->
+            <div class="w-full lg:w-1/2 relative">
+                <!-- Image backdrop with softer glow -->
+                <div class="absolute inset-0 bg-gradient-to-tr from-indigo-500/30 via-purple-500/20 to-pink-500/30 rounded-full blur-[120px]"></div>
+                
+                <div class="relative animate-float">
+                    <!-- Image with blend mode for seamless integration -->
+                    <div class="relative">
+                        <img src="assets/img/slider/01.png" alt="Digital Transformation" class="w-full max-w-2xl mx-auto drop-shadow-2xl relative z-10" style="filter: drop-shadow(0 20px 60px rgba(139, 92, 246, 0.3));">
+                        <!-- Subtle gradient overlay matching background -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-purple-500/5 to-pink-500/5 rounded-xl pointer-events-none"></div>
+                        <!-- Edge fade effect for seamless blending -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent rounded-xl pointer-events-none"></div>
+                        <div class="absolute inset-0 bg-gradient-to-b from-slate-900/30 via-transparent to-transparent rounded-xl pointer-events-none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block">
+            <div class="p-2 bg-white/5 backdrop-blur-sm rounded-full border border-white/10">
+                <svg class="w-6 h-6 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-20px);
+        }
+    }
+
+    @keyframes float-delay-1 {
+        0%, 100% {
+            transform: translateY(0px) translateX(0px);
+        }
+        50% {
+            transform: translateY(-15px) translateX(10px);
+        }
+    }
+
+    @keyframes float-delay-2 {
+        0%, 100% {
+            transform: translateY(0px) translateX(0px);
+        }
+        50% {
+            transform: translateY(-25px) translateX(-10px);
+        }
+    }
+
+    @keyframes glow {
+        0%, 100% {
+            opacity: 0.3;
+            transform: scale(1);
+        }
+        50% {
+            opacity: 0.5;
+            transform: scale(1.1);
+        }
+    }
+
+    @keyframes glow-delay {
+        0%, 100% {
+            opacity: 0.2;
+            transform: scale(1);
+        }
+        50% {
+            opacity: 0.4;
+            transform: scale(1.15);
+        }
+    }
+
+    @keyframes gradient {
+        0%, 100% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+    }
+
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fade-in-up {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-float {
+        animation: float 6s ease-in-out infinite;
+    }
+
+    .animate-float-delay-1 {
+        animation: float-delay-1 8s ease-in-out infinite;
+    }
+
+    .animate-float-delay-2 {
+        animation: float-delay-2 10s ease-in-out infinite;
+    }
+
+    .animate-glow {
+        animation: glow 8s ease-in-out infinite;
+    }
+
+    .animate-glow-delay {
+        animation: glow-delay 10s ease-in-out infinite;
+    }
+
+    .animate-gradient {
+        background-size: 200% 200%;
+        animation: gradient 5s ease infinite;
+    }
+
+    .animate-fade-in {
+        animation: fade-in 1s ease-out;
+    }
+
+    .animate-fade-in-up {
+        animation: fade-in-up 1s ease-out 0.3s both;
+    }
+</style>
 
 	<!-- Why Choose Us Section -->
 	<section class="apldg-choose-us">
@@ -902,7 +1116,7 @@
 		<div class="schedule-container" >
 		  <!-- Embed Cal.com iframe here -->
 		  <iframe
-			src="https://cal.com/designlabs"
+			src="https://cal.com/synoptiqgloble"
 			width="100%"
 			height="600"
 			frameborder="0"
@@ -1139,7 +1353,7 @@
 <!--								<a href="#"><i class="fab fa-twitter"></i></a>-->
 <!--								<a href="#"><i class="fab fa-pinterest"></i></a>-->
 <!--								<a href="#"><i class="fab fa-instagram"></i></a>-->
-			<a href="https://www.linkedin.com/company/designlab-asia"><i class="fab fa-linkedin"></i></a>
+			<a href="https://www.linkedin.com/company/synoptiqgloble"><i class="fab fa-linkedin"></i></a>
 			<a href="https://wa.me/94777332641"><i class="fab fa-whatsapp"></i></a>
 						</div>
 					</div>
@@ -1186,7 +1400,7 @@
 
 			  <li>
 				<i class="fas fa-envelope"></i>
-				<span><a href="mailto:info@designlabasia.com">info@designlabasia.com</a></span>
+				<span><a href="mailto:info@synoptiqgloble.com">info@synoptiqgloble.com</a></span>
 			  </li>
 							</ul>
 						</div>

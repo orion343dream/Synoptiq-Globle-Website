@@ -33,7 +33,7 @@
               "src/styles.scss"
             ],
             "scripts": [],
-            "baseHref": "/Designlab-Website/"
+            "baseHref": "/SynoptiqGloble-Website/"
           },
           "configurations": {
             "production": {
