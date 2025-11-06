@@ -12,10 +12,27 @@ export class AppComponent implements OnInit {
   mobileMenuOpen = false;
 
   ngOnInit() {
-    // Simulate loading time
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 1000);
+    // Handle preloader
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      setTimeout(() => {
+        if (preloader) {
+          preloader.classList.add('hidden');
+          this.isLoading = false;
+        }
+      }, 1500); // Show loader for 1.5s for better UX
+    });
+
+    // Trigger preloader hide even if load event already fired
+    if (document.readyState === 'complete') {
+      const preloader = document.getElementById('preloader');
+      setTimeout(() => {
+        if (preloader) {
+          preloader.classList.add('hidden');
+          this.isLoading = false;
+        }
+      }, 1500);
+    }
   }
 
   @HostListener('window:scroll', [])

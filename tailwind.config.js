@@ -22,6 +22,15 @@ module.exports = {
         'primary-dark': '#0A42B3',
         dark: '#1A1A1A',
         text: '#55595d'
+        ,
+        /* migrated custom-styles palette */
+        navy: '#002C5F',
+        royal: '#0056A4',
+        cyan: '#00B5E2',
+        'accent-orange': '#FF8C42',
+        'light-gray': '#F5F5F5',
+        'dark-gray': '#333333',
+        white: '#FFFFFF'
       },
       fontFamily: {
         title: ['Exo', 'sans-serif'],

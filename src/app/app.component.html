@@ -2,28 +2,105 @@
 
 
 <div class="apldg-body-overlay"></div>
-<!-- Preloader-->
-<div class="loading-preloader">
-	<div id="loading-preloader">
-		<div class="line_shape"></div>
-		<div class="line_shape"></div>
-		<div class="line_shape"></div>
-		<div class="line_shape"></div>
-		<div class="line_shape"></div>
-		<div class="line_shape"></div>
-		<div class="line_shape"></div>
-		<div class="line_shape"></div>
-		<div class="line_shape"></div>
-		<div class="line_shape"></div>
-	</div>
+<!-- Preloader -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-navy bg-opacity-90 backdrop-blur-sm transition-opacity duration-500" id="preloader">
+    <div class="relative">
+        <!-- Outer Ring -->
+        <div class="w-24 h-24 rounded-full border-4 border-t-red-600 border-r-orange-600 border-b-red-600 border-l-orange-600 animate-spin"></div>
+        
+        <!-- Middle Ring -->
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full border-4 border-t-transparent border-r-red-600 border-b-orange-600 border-l-transparent animate-spin-reverse"></div>
+        
+        <!-- Inner Ring -->
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full border-4 border-t-red-600 border-r-orange-600 border-b-red-600 border-l-orange-600 animate-spin"></div>
+        
+        <!-- Center Dot -->
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-white rounded-full animate-pulse"></div>
+        
+        <!-- Particles -->
+        <div class="absolute inset-0 animate-particle-1">
+            <div class="absolute w-1 h-1 bg-orange-600 rounded-full"></div>
+        </div>
+        <div class="absolute inset-0 animate-particle-2">
+            <div class="absolute w-1 h-1 bg-red-600 rounded-full"></div>
+        </div>
+        <div class="absolute inset-0 animate-particle-3">
+            <div class="absolute w-1 h-1 bg-white rounded-full"></div>
+        </div>
+    </div>
 </div>
+
+<style>
+    @keyframes spin-reverse {
+        from {
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+        to {
+            transform: translate(-50%, -50%) rotate(-360deg);
+        }
+    }
+    
+    @keyframes particle-1 {
+        0%, 100% {
+            transform: rotate(0deg) translateX(12px);
+        }
+        50% {
+            transform: rotate(180deg) translateX(12px);
+        }
+    }
+    
+    @keyframes particle-2 {
+        0%, 100% {
+            transform: rotate(120deg) translateX(12px);
+        }
+        50% {
+            transform: rotate(300deg) translateX(12px);
+        }
+    }
+    
+    @keyframes particle-3 {
+        0%, 100% {
+            transform: rotate(240deg) translateX(12px);
+        }
+        50% {
+            transform: rotate(420deg) translateX(12px);
+        }
+    }
+    
+    .animate-spin-reverse {
+        animation: spin-reverse 3s linear infinite;
+    }
+    
+    .animate-particle-1 {
+        animation: particle-1 3s linear infinite;
+    }
+    
+    .animate-particle-2 {
+        animation: particle-2 3s linear infinite;
+    }
+    
+    .animate-particle-3 {
+        animation: particle-3 3s linear infinite;
+    }
+    
+    #preloader {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    }
+    
+    #preloader.hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
+</style>
 <!-- Preloader End -->
 
 <!-- ScrollTop Button -->
 <a href="#" class="apldg-scroll-top"><i class="fas fa-angle-double-up"></i></a>
 
 <!-- Header Section -->
-<header id="header" class="w-full sticky top-4 z-50">
+<header id="header" class="fixed w-full z-50 backdrop-blur-lg bg-white/5">
 	<div class="container mx-auto px-4">
 		<div class="relative">
 			<!-- Gradient background with rounded corners -->
@@ -115,118 +192,37 @@
 							<span class="font-medium">Technologies</span>
 						</a>
 					</li>
-					<li>
-						<a (click)="toggleMobileMenu()" href="#apldg_certifications" class="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-[#131b76]/20 transition-colors">
-							<svg class="w-5 h-5 text-[#131b76]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
-							</svg>
-							<span class="font-medium">Certifications</span>
-						</a>
-					</li>
 				</ul>
 			</nav>
-		</div>
-		<div class="mt-8">
-			<a (click)="toggleMobileMenu()" href="#apldg_git" class="flex items-center justify-center gap-2 w-full px-6 py-3 rounded-full bg-gradient-to-r from-[#0c114a] to-[#131b76] text-white font-medium hover:shadow-lg hover:shadow-[#131b76]/25 transition-all duration-200 border border-[#252525]/10">
-				<span>Get In Touch</span>
-				<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-				</svg>
-			</a>
 		</div>
 	</aside>
 </div>
 
-	<!-- Header Search Form -->
-	<div class="apldg-header-form">
-		<div class="apldg-form-overlay"></div>
-		<form action="#">
-			<input type="text" placeholder="Search...">
-			<button type="submit">Go</button>
-		</form>
-	</div>
-	<!-- Header Search Form End -->
+<!-- Hero Section -->
+<section id="apldg_banner" class="relative min-h-screen overflow-hidden bg-background">
+    <!-- Background Elements -->
+    <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-gradient-to-tr from-blue-700/40 to-orange-700/20"></div>
+        <div class="absolute -left-24 -top-24 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl"></div>
+        <div class="absolute -right-24 -bottom-24 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl"></div>
+    </div>
 
-	<!-- Header Sidebar Info -->
-	<div class="apldg-sidebar-info">
-		<div class="apldg_sidebar_info_content">
-			<span class="close-menu"><i class="fas fa-times"></i></span>
-			<div class="apldg_sidebar_logo">
-				<a href="#"><img src="assets/img/logo.png" alt=""></a>
-			</div>
-			<div class="apldg-pera-txt">
-				<p>Synoptiq Globle partners in a radically open and transparent process to understand the unique needs of clients and to build powerful software solutions.</p>
-			</div>
-			<div class="apldg-sidebar-gallery">
-				<ul>
-					<li>
-						<a href="#"><img src="assets/img/gallery/01.png" alt=""></a>
-					</li>
-					<li>
-						<a href="#"><img src="assets/img/gallery/02.png" alt=""></a>
-					</li>
-					<li>
-						<a href="#"><img src="assets/img/gallery/03.png" alt=""></a>
-					</li>
-					<li>
-						<a href="#"><img src="assets/img/gallery/04.png" alt=""></a>
-					</li>
-					<li>
-						<a href="#"><img src="assets/img/gallery/05.png" alt=""></a>
-					</li>
-					<li>
-						<a href="#"><img src="assets/img/gallery/06.png" alt=""></a>
-					</li>
-				</ul>
-			</div>
-			<div class="apldg-sidebar-social">
-				<div class="apldg-headline">
-					<h5>Follow us on</h5>
-				</div>
-				<div class="apldg-social-links">
-					<a href="#"><i class="fab fa-facebook"></i></a>
-					<a href="#"><i class="fab fa-twitter"></i></a>
-					<a href="#"><i class="fab fa-linkedin"></i></a>
-					<a href="#"><i class="fab fa-pinterest"></i></a>
-				</div>
-			</div>
-			<div class="apldg-sidebar-copyright">
-				<p>&copy; Copyright By <a href="#">Synoptiq Globle</a></p>
-			</div>
-		</div>
-	</div>
-	<!-- Header Sidebar Info End -->
-
-   <!-- Hero Section -->
-<section id="apldg_banner" class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-blue-800 via-blue-900 to-orange-900">
-    <!-- Simple gradient overlays -->
-	<div class="absolute inset-0">
-		<!-- Main gradient overlay (no image) -->
-		<div class="absolute inset-0 bg-gradient-to-tr from-blue-700/40 to-orange-700/20"></div>
-
-		<!-- Subtle radial glows for depth (no grid image) -->
-		<div class="absolute -left-24 -top-24 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl"></div>
-		<div class="absolute -right-24 -bottom-24 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl"></div>
-	</div>
-
-    <div class="container mx-auto px-4 py-20 relative z-10">
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-20 relative z-10 min-h-screen flex flex-col justify-center">
+        <!-- Content Row -->
         <div class="flex flex-col lg:flex-row items-center gap-12">
-            <!-- Left content -->
+            <!-- Left Content -->
             <div class="w-full lg:w-1/2 text-center lg:text-left relative">
-                <!-- Text backdrop glow -->
                 <div class="absolute -left-20 top-0 w-60 h-60 bg-indigo-500/10 rounded-full blur-3xl"></div>
-                
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in relative">
-                    We Secure and Amplify Your 
-                    <span class="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 text-transparent bg-clip-text animate-gradient">
-                        Digital Presence
-                    </span>
+                    We Secure and Amplify Your
+                    <span class="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 text-transparent bg-clip-text animate-gradient">Digital Presence</span>
                 </h1>
                 <p class="text-gray-300 text-lg md:text-xl mb-8 animate-fade-in-up opacity-90 leading-relaxed">
                     Empowering businesses with cutting-edge cybersecurity solutions and digital transformation strategies. We help you build secure foundations, gain visibility, and convert opportunities in the ever-evolving digital landscape.
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 animate-fade-in-up">
-                    <a href="#apldg_git" class="group px-8 py-3 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white rounded-full font-semibold hover:shadow-[0_0_30px_rgba(139,92,246,0.6)] hover:scale-105 transition-all duration-300 inline-flex items-center gap-2">
+                    <a href="#apldg_git" class="group px-8 py-3 bg-gradient-to-r from-red-600 to-orange-600 text-white rounded-full font-semibold hover:shadow-[0_0_30px_rgba(234,88,12,0.6)] hover:scale-105 transition-all duration-300 inline-flex items-center gap-2">
                         <span>Get Started</span>
                         <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -238,18 +234,13 @@
                 </div>
             </div>
 
-            <!-- Right content with floating illustration -->
+            <!-- Right Content -->
             <div class="w-full lg:w-1/2 relative">
-                <!-- Image backdrop with softer glow -->
                 <div class="absolute inset-0 bg-gradient-to-tr from-indigo-500/30 via-purple-500/20 to-pink-500/30 rounded-full blur-[120px]"></div>
-                
                 <div class="relative animate-float">
-                    <!-- Image with blend mode for seamless integration -->
                     <div class="relative">
                         <img src="assets/img/slider/01.png" alt="Digital Transformation" class="w-full max-w-2xl mx-auto drop-shadow-2xl relative z-10" style="filter: drop-shadow(0 20px 60px rgba(139, 92, 246, 0.3));">
-                        <!-- Subtle gradient overlay matching background -->
                         <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-purple-500/5 to-pink-500/5 rounded-xl pointer-events-none"></div>
-                        <!-- Edge fade effect for seamless blending -->
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent rounded-xl pointer-events-none"></div>
                         <div class="absolute inset-0 bg-gradient-to-b from-slate-900/30 via-transparent to-transparent rounded-xl pointer-events-none"></div>
                     </div>
@@ -257,7 +248,7 @@
             </div>
         </div>
 
-        <!-- Scroll indicator -->
+        <!-- Scroll Indicator -->
         <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block">
             <div class="p-2 bg-white/5 backdrop-blur-sm rounded-full border border-white/10">
                 <svg class="w-6 h-6 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -267,6 +258,7 @@
         </div>
     </div>
 </section>
+
 
 <style>
     @keyframes float {
@@ -384,97 +376,100 @@
 </style>
 
 	<!-- Why Choose Us Section -->
-	<section class="apldg-choose-us">
-		<span class="apldg-object-5"><img src="assets/img/object-5.png" alt=""></span>
-		<span class="apldg-object-6"><img src="assets/img/object-6.png" alt=""></span>
-		<span class="apldg-object-7"><img src="assets/img/object-7.png" alt=""></span>
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-lg-6 order-12 order-lg-1">
-					<div class="apldg-choose-left">
-						<div class="row">
-							<div class="col-sm-6">
-								<div class="apldg-choose-column">
-									<div class="apldg-icon-wrapper gradient-3">
-										<i class="flaticon-projects"></i>
-									</div>
-									<div class="apldg-headline">
-										<a href="#"><h6>Containerlization</h6></a>
-									</div>
-									<div class="apldg-pera-txt">
-										<p>Transitioning existing workloads to containerized
-					environments and deploying them on cloud platforms.
-					This service addresses the need for scalable and
-					efficient application deployment.</p>
-									</div>
-								</div>
+	<section class="relative py-20 overflow-hidden bg-background">
+		<span class="absolute -left-20 -top-20"><img src="assets/img/object-5.png" alt="" class="w-40 h-40 opacity-50"></span>
+		<span class="absolute right-0 top-1/4"><img src="assets/img/object-6.png" alt="" class="w-32 h-32 opacity-30"></span>
+		<span class="absolute -left-10 bottom-1/4"><img src="assets/img/object-7.png" alt="" class="w-24 h-24 opacity-40"></span>
+		<div class="container mx-auto px-4">
+			<div class="flex flex-col lg:flex-row items-center gap-12">
+				<!-- Left Column -->
+				<div class="w-full lg:w-1/2 order-2 lg:order-1">
+					<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+						<!-- Containerization -->
+						<div class="bg-white/5 p-6 rounded-xl backdrop-blur-sm hover:transform hover:-translate-y-1 transition-all duration-300">
+							<div class="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 mb-4">
+								<i class="flaticon-projects text-white text-2xl"></i>
 							</div>
-							<div class="col-sm-6">
-								<div class="apldg-choose-column">
-									<div class="apldg-icon-wrapper">
-										<i class="flaticon-planet-earth"></i>
-									</div>
-									<div class="apldg-headline">
-										<a href="#"><h6>Modernization</h6></a>
-									</div>
-									<div class="apldg-pera-txt">
-										<p>Offer consultations for enhancing application performance
-					using the latest technologies. This involves strategies like
-					cloud migration, adopting microservices, and modernizing
-					legacy systems.</p>
-									</div>
-								</div>
+							<h6 class="text-lg font-semibold mb-3 hover:text-indigo-400">
+								<a href="#">Containerization</a>
+							</h6>
+							<p class="text-gray-400 text-sm leading-relaxed">
+								Transitioning existing workloads to containerized
+								environments and deploying them on cloud platforms.
+								This service addresses the need for scalable and
+								efficient application deployment.
+							</p>
+						</div>
+
+						<!-- Modernization -->
+						<div class="bg-white/5 p-6 rounded-xl backdrop-blur-sm hover:transform hover:-translate-y-1 transition-all duration-300">
+							<div class="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-r from-purple-600 to-pink-600 mb-4">
+								<i class="flaticon-planet-earth text-white text-2xl"></i>
 							</div>
-							<div class="col-sm-6">
-								<div class="apldg-choose-column">
-									<div class="apldg-icon-wrapper">
-										<i class="flaticon-concept"></i>
-									</div>
-									<div class="apldg-headline">
-										<a href="#"><h6>DevOps/DevSecOps</h6></a>
-									</div>
-									<div class="apldg-pera-txt">
-										<p>Provide infrastructure management with a focus on
-					automated deployment processes, integrating security from
-					the start. This service aims to streamline development
-					workflows while ensuring security and compliance.</p>
-									</div>
-								</div>
+							<h6 class="text-lg font-semibold mb-3 hover:text-purple-400">
+								<a href="#">Modernization</a>
+							</h6>
+							<p class="text-gray-400 text-sm leading-relaxed">
+								Offer consultations for enhancing application performance
+								using the latest technologies. This involves strategies like
+								cloud migration, adopting microservices, and modernizing
+								legacy systems.
+							</p>
+						</div>
+
+						<!-- DevOps/DevSecOps -->
+						<div class="bg-white/5 p-6 rounded-xl backdrop-blur-sm hover:transform hover:-translate-y-1 transition-all duration-300">
+							<div class="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-r from-pink-600 to-red-600 mb-4">
+								<i class="flaticon-concept text-white text-2xl"></i>
 							</div>
-							<div class="col-sm-6">
-								<div class="apldg-choose-column">
-									<div class="apldg-icon-wrapper gradient-3">
-										<i class="flaticon-app"></i>
-									</div>
-									<div class="apldg-headline">
-										<a href="#"><h6>Software Solutions</h6></a>
-									</div>
-									<div class="apldg-pera-txt">
-										<p>Deliver tailored application architecture solutions and
-					consultations, focusing on specific types of applications or
-					business problems.</p>
-									</div>
-								</div>
+							<h6 class="text-lg font-semibold mb-3 hover:text-pink-400">
+								<a href="#">DevOps/DevSecOps</a>
+							</h6>
+							<p class="text-gray-400 text-sm leading-relaxed">
+								Provide infrastructure management with a focus on
+								automated deployment processes, integrating security from
+								the start. This service aims to streamline development
+								workflows while ensuring security and compliance.
+							</p>
+						</div>
+
+						<!-- Software Solutions -->
+						<div class="bg-white/5 p-6 rounded-xl backdrop-blur-sm hover:transform hover:-translate-y-1 transition-all duration-300">
+							<div class="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-r from-red-600 to-orange-600 mb-4">
+								<i class="flaticon-app text-white text-2xl"></i>
 							</div>
+							<h6 class="text-lg font-semibold mb-3 hover:text-red-400">
+								<a href="#">Software Solutions</a>
+							</h6>
+							<p class="text-gray-400 text-sm leading-relaxed">
+								Deliver tailored application architecture solutions and
+								consultations, focusing on specific types of applications or
+								business problems.
+							</p>
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-6 order-1 order-lg-12">
-					<div class="apldg-choose-right">
-						<div class="apldg-title-area">
-							<span class="apldg-subtitle">Why Choose us</span>
-							<div class="apldg-headline">
-								<h3>Deployment/Business Process Enhancement</h3>
-							</div>
-							<div class="apldg-pera-txt">
-								<p>Provide Implement and improve agile, DevOps, and
-				DevSecOps frameworks within organizations to boost
-				productivity and efficiency in software development and
-				deployment processes.</p>
-							</div>
-						</div>
-						<div class="apldg-secondary-btn">
-							<a href="#">Discover More</a>
+
+				<!-- Right Column -->
+				<div class="w-full lg:w-1/2 order-1 lg:order-2">
+					<div class="text-center lg:text-left">
+						<span class="inline-block px-4 py-2 bg-indigo-500/10 text-indigo-400 rounded-full text-sm font-semibold mb-4">Why Choose us</span>
+						<h3 class="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+							Deployment/Business Process Enhancement
+						</h3>
+						<p class="text-gray-400 text-lg leading-relaxed mb-8">
+							Provide Implement and improve agile, DevOps, and
+							DevSecOps frameworks within organizations to boost
+							productivity and efficiency in software development and
+							deployment processes.
+						</p>
+						<div class="inline-flex items-center justify-center">
+							<a href="#" class="group px-6 py-3 bg-gradient-to-r from-red-600 to-orange-600 text-white rounded-full font-semibold hover:shadow-[0_0_30px_rgba(234,88,12,0.6)] hover:scale-105 transition-all duration-300 flex items-center gap-2">
+								Discover More
+								<svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+								</svg>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -536,8 +531,8 @@
 								</div>
 							</div>
 						</div>
-						<div class="apldg-about-btn">
-							<a href="#" class="apldg-primary-btn">Discover More</a>
+						<div class="inline-flex items-center justify-center">
+							<a href="#" class="px-5 py-2.5 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-white transition-colors duration-300">Discover More</a>
 						</div>
 					</div>
 
@@ -562,14 +557,14 @@
 	  </div>
 	</div>
   </div>
-  <div class="apldg-service-content">
+	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 	<div class="row">
-	  <div class="col-lg-4 col-md-6">
-		<div class="apldg-service-column">
-		  <div class="apldg-icon-wrapper gradient-3">
+			<div class="col-lg-4 col-md-6">
+				<div class="bg-white/5 p-6 rounded-xl shadow-md hover:shadow-xl transition-transform transform hover:-translate-y-1">
+					<div class="apldg-icon-wrapper gradient-3">
 			<i class="flaticon-fast-forward"></i>
 		  </div>
-		  <div class="apldg-service-column-content">
+		  <div class="mt-4">
 			<div class="apldg-headline">
 			  <h6>Digital Transformation</h6>
 			</div>
@@ -579,12 +574,12 @@
 		  </div>
 		</div>
 	  </div>
-	  <div class="col-lg-4 col-md-6">
-		<div class="apldg-service-column">
-		  <div class="apldg-icon-wrapper">
+			<div class="col-lg-4 col-md-6">
+				<div class="bg-white/5 p-6 rounded-xl shadow-md hover:shadow-xl transition-transform transform hover:-translate-y-1">
+					<div class="apldg-icon-wrapper">
 			<i class="flaticon-project-management"></i>
 		  </div>
-		  <div class="apldg-service-column-content">
+		  <div class="mt-4">
 			<div class="apldg-headline">
 			  <h6>Product Development</h6>
 			</div>
@@ -594,12 +589,12 @@
 		  </div>
 		</div>
 	  </div>
-	  <div class="col-lg-4 col-md-6">
-		<div class="apldg-service-column">
-		  <div class="apldg-icon-wrapper gradient-3">
+			<div class="col-lg-4 col-md-6">
+				<div class="bg-white/5 p-6 rounded-xl shadow-md hover:shadow-xl transition-transform transform hover:-translate-y-1">
+					<div class="apldg-icon-wrapper gradient-3">
 			<i class="flaticon-ux-design"></i>
 		  </div>
-		  <div class="apldg-service-column-content">
+		  <div class="mt-4">
 			<div class="apldg-headline">
 			  <h6>User Experience (UX) & Design</h6>
 			</div>
@@ -609,12 +604,12 @@
 		  </div>
 		</div>
 	  </div>
-	  <div class="col-lg-4 col-md-6">
-		<div class="apldg-service-column">
-		  <div class="apldg-icon-wrapper">
+			<div class="col-lg-4 col-md-6">
+				<div class="bg-white/5 p-6 rounded-xl shadow-md hover:shadow-xl transition-transform transform hover:-translate-y-1">
+					<div class="apldg-icon-wrapper">
 			<i class="flaticon-app"></i>
 		  </div>
-		  <div class="apldg-service-column-content">
+		  <div class="mt-4">
 			<div class="apldg-headline">
 			  <h6>Mobile & Web Applications</h6>
 			</div>
@@ -624,12 +619,12 @@
 		  </div>
 		</div>
 	  </div>
-	  <div class="col-lg-4 col-md-6">
-		<div class="apldg-service-column">
-		  <div class="apldg-icon-wrapper gradient-3">
+			<div class="col-lg-4 col-md-6">
+				<div class="bg-white/5 p-6 rounded-xl shadow-md hover:shadow-xl transition-transform transform hover:-translate-y-1">
+					<div class="apldg-icon-wrapper gradient-3">
 			<i class="flaticon-planet-earth"></i>
 		  </div>
-		  <div class="apldg-service-column-content">
+		  <div class="mt-4">
 			<div class="apldg-headline">
 			 <h6>Cybersecurity</h6>
 			</div>
@@ -639,12 +634,12 @@
 		  </div>
 		</div>
 	  </div>
-	  <div class="col-lg-4 col-md-6">
-		<div class="apldg-service-column">
-		  <div class="apldg-icon-wrapper">
+			<div class="col-lg-4 col-md-6">
+				<div class="bg-white/5 p-6 rounded-xl shadow-md hover:shadow-xl transition-transform transform hover:-translate-y-1">
+					<div class="apldg-icon-wrapper">
 			<i class="flaticon-idea"></i>
 		  </div>
-		  <div class="apldg-service-column-content">
+		  <div class="mt-4">
 			<div class="apldg-headline">
 			  <h6>Cloud & DevOps</h6>
 			</div>
@@ -654,12 +649,12 @@
 		  </div>
 		</div>
 	  </div>
-	  <div class="col-lg-4 col-md-6">
-		<div class="apldg-service-column">
-		  <div class="apldg-icon-wrapper gradient-3">
+			<div class="col-lg-4 col-md-6">
+				<div class="bg-white/5 p-6 rounded-xl shadow-md hover:shadow-xl transition-transform transform hover:-translate-y-1">
+					<div class="apldg-icon-wrapper gradient-3">
 			<i class="flaticon-happy"></i>
 		  </div>
-		  <div class="apldg-service-column-content">
+		  <div class="mt-4">
 			<div class="apldg-headline">
 			  <h6>AI & Machine Learning</h6>
 			</div>
@@ -669,12 +664,12 @@
 		  </div>
 		</div>
 	  </div>
-	  <div class="col-lg-4 col-md-6">
-		<div class="apldg-service-column">
-		  <div class="apldg-icon-wrapper">
+			<div class="col-lg-4 col-md-6">
+				<div class="bg-white/5 p-6 rounded-xl shadow-md hover:shadow-xl transition-transform transform hover:-translate-y-1">
+					<div class="apldg-icon-wrapper">
 			<i class="flaticon-projects"></i>
 		  </div>
-		  <div class="apldg-service-column-content">
+		  <div class="mt-4">
 			<div class="apldg-headline">
 			  <h6>Data Analytics</h6>
 			</div>
@@ -699,12 +694,12 @@
 		  </div>
 		</div>
 	  </div>
-	  <div class="col-lg-4 col-md-6">
-		<div class="apldg-service-column">
-		  <div class="apldg-icon-wrapper">
+			<div class="col-lg-4 col-md-6">
+				<div class="bg-white/5 p-6 rounded-xl shadow-md hover:shadow-xl transition-transform transform hover:-translate-y-1">
+					<div class="apldg-icon-wrapper">
 			<i class="flaticon-menu-1"></i>
 		  </div>
-		  <div class="apldg-service-column-content">
+		  <div class="mt-4">
 			<div class="apldg-headline">
 			  <h6>Enterprise Solutions</h6>
 			</div>
@@ -776,8 +771,8 @@
 	  </div>
 	</div>
   </div>
-  <div class="apldg-secondary-btn">
-	<a href="#">Discover More</a>
+  <div class="inline-flex items-center justify-center mt-8">
+	<a href="#" class="px-5 py-2.5 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-white transition-colors duration-300">Discover More</a>
   </div>
 </div>
 </section>
@@ -1339,7 +1334,7 @@
 	<!-- Blog Section End -->
 
 	<!-- Footer Section -->
-	<footer class="apldg-footer-section" data-background="assets/img/footer-bg.jpg">
+	<footer class="bg-navy text-white" data-background="assets/img/footer-bg.jpg">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4 col-sm-6">
