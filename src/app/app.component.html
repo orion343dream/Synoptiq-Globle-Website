@@ -23,41 +23,24 @@
 <a href="#" class="apldg-scroll-top"><i class="fas fa-angle-double-up"></i></a>
 
 <!-- Header Section -->
-<header class="apldg-header-section">
-	<div class="container">
-		<div class="row align-items-center">
-			<div class="col-lg-2 col-6">
-				<div class="apldg-logo-wrapper">
-					<a href="#"><img src="assets/img/logo.png" alt=""></a>
-				</div>
+<header class="apldg-header-section fixed w-full z-50 backdrop-blur bg-white/80 transition-shadow duration-300">
+	<div class="container max-w-6xl mx-auto px-4">
+		<div class="flex items-center justify-between py-3">
+			<div class="flex items-center gap-4">
+				<a href="#" class="apldg-logo-wrapper inline-block">
+					<img src="assets/img/logo.png" alt="" class="h-10">
+				</a>
 			</div>
-			<div class="col-lg-7 apldg-desktop-menu">
-				<div class="apldg-navmenu">
-					<nav class="apldg-main-nav">
-						<ul>
-							<li><a class="nav-link" href="#apldg_banner" class="active">Home</a></li>
-							<li><a class="nav-link" href="#apldg_about">About Us</a></li>
-							<li><a class="nav-link" href="#apldg_service">Services</a></li>
-							<li><a class="nav-link" href="#apldg_technologies">Technologies</a></li>
-							<li><a class="nav-link" href="#apldg_certifications">Certifications</a></li>
-
-
-			<!-- <li><a class="nav-link" href="#apldg_blog">Contact</a></li> -->
-						</ul>
-					</nav>
-				</div>
-			</div>
-			<div class="col-lg-3 col-6">
-				<div class="apldg-header-right">
-					<a href="#apldg_git" class="apldg-primary-btn">Get In Touch</a>
-					<!-- <button type="button" class="apldg-search-btn"><i class="fas fa-search"></i></button> -->
-					<a href="#" class="apldg-header-sidebar-btn"><i class="fas fa-bars"></i></a>
-					<div class="apldg-mobile-menu-open">
-						<span></span>
-						<span></span>
-						<span></span>
-					</div>
-				</div>
+			<nav class="apldg-main-nav hidden md:flex items-center gap-6 font-ui uppercase text-sm">
+				<a class="nav-link text-text hover:text-primary transition" href="#apldg_banner">Home</a>
+				<a class="nav-link text-text hover:text-primary transition" href="#apldg_about">About Us</a>
+				<a class="nav-link text-text hover:text-primary transition" href="#apldg_service">Services</a>
+				<a class="nav-link text-text hover:text-primary transition" href="#apldg_technologies">Technologies</a>
+				<a class="nav-link text-text hover:text-primary transition" href="#apldg_certifications">Certifications</a>
+			</nav>
+			<div class="apldg-header-right flex items-center gap-3">
+				<a href="#apldg_git" class="apldg-primary-btn btn-primary">Get In Touch</a>
+				<button class="apldg-header-sidebar-btn md:hidden p-2 rounded-md text-text hover:text-primary"><i class="fas fa-bars"></i></button>
 			</div>
 		</div>
 	</div>
@@ -65,17 +48,16 @@
 <!-- Header Section End -->
 
 <!-- Mobile Menu -->
-<div class="apldg-mobile-menu">
-	<a href="#" class="apldg-menu-close"><i class="fas fa-times"></i></a>
-	<a href="#" class="apldg-logo-wrapper"><img src="assets/img/logo-white.png" alt=""></a>
-	<ul>
-  <li><a class="nav-link" href="#apldg_banner" class="active">Home</a></li>
-  <li><a class="nav-link" href="#apldg_about">About Us</a></li>
-  <li><a class="nav-link" href="#apldg_service">Services</a></li>
-  <li><a class="nav-link" href="#apldg_technologies">Technologies</a></li>
-  <!-- <li><a class="nav-link" href="#apldg_blog">Contact</a></li> -->
+<div class="apldg-mobile-menu fixed inset-0 bg-white p-6 md:hidden transform -translate-x-full" aria-hidden="true">
+		<button class="apldg-menu-close mb-4 p-2 rounded-md"><i class="fas fa-times text-2xl"></i></button>
+		<a href="#" class="apldg-logo-wrapper block mb-6"><img src="assets/img/logo.png" alt="" class="h-10"></a>
+		<ul class="flex flex-col gap-4 text-lg">
+			<li><a class="nav-link" href="#apldg_banner">Home</a></li>
+			<li><a class="nav-link" href="#apldg_about">About Us</a></li>
+			<li><a class="nav-link" href="#apldg_service">Services</a></li>
+			<li><a class="nav-link" href="#apldg_technologies">Technologies</a></li>
 		</ul>
-	</div>
+		</div>
 
 	<!-- Header Search Form -->
 	<div class="apldg-header-form">
