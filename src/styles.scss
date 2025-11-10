@@ -2,51 +2,78 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Project font variables (kept for reference) */
+/* Project font variables */
 :root {
-	--title-font: 'Exo', sans-serif;
-	--body-font: 'Fira Sans', sans-serif;
-	--ui-font: 'Red Hat Display', sans-serif;
+    --title-font: 'Exo', sans-serif;
+    --body-font: 'Fira Sans', sans-serif;
+    --ui-font: 'Red Hat Display', sans-serif;
 }
 
-/* Color theme variables (global) */
+/* Color theme variables - White Background Optimized */
 :root {
-    --background-color: #05071e; /* main website background */
-    --surface-color: #131428;    /* surface / boxed elements */
+    /* Core Background Colors */
+    --background-color: #FFFFFF;    /* Primary Background (Pure White) */
+    --surface-color: #F8F9FA;       /* Secondary Background (Subtle off-white for depth) */
 
-    /* Light / Dark presets */
-    --light-background-bg: #0c114a;
-    --light-background-surface: #131b76;
+    /* Light / Dark presets optimized for white background */
+    --light-background-bg: #FFFFFF;      /* Light preset: Pure white */
+    --light-background-surface: #F8F9FA; /* Light preset: Off-white surface */
 
-    --dark-background-bg: #01020e;
-    --dark-background-surface: #252525;
+    --dark-background-bg: #043056;      /* Dark preset: Green Vogue for dark sections */
+    --dark-background-surface: #343E4C; /* Dark preset: Oxford Blue for dark surfaces */
 
-    /* Header specifics */
-    --header-container-bg: #1b1933;
-    --header-bg: rgba(255,255,255,0);
+    /* Header specifics - maintaining white base */
+    --header-container-bg: #FFFFFF; /* Header uses white surface by default */
+    --header-overlay: rgba(4,48,86,0.04); /* Subtle tint using Green Vogue */
+    
+    /* Updated legacy colors */
+    --primary: #FB8928;         /* Now uses Crusta */
+    --primary-light: #FC9B4D;   /* Lighter shade of Crusta */
+    --primary-dark: #E67A1F;    /* Darker shade of Crusta */
+    --text: #343E4C;            /* Now uses Oxford Blue */
+    --dark: #043056;            /* Now uses Green Vogue */
 }
 
-/* Converted variables from src/assets/scss/custom-styles.scss */
+/* New Color System - White Background Optimized */
 :root {
+    /* Primary Action & Accent */
+    --crusta: #FB8928;
+    --crusta-light: #FC9B4D;
+    --crusta-dark: #E67A1F;
+    
+    /* Primary Text & Structure Colors */
+    --green-vogue: #043056;     /* Primary text/main headers */
+    --oxford-blue: #343E4C;     /* Secondary text/subtle elements */
+    
+    /* Secondary Support & Data Visualization */
+    --ming: #345C7C;            /* Secondary buttons/charts */
+    
+    /* System Colors */
+    --success: #4BB543;
+    --warning: #FFC107;
+    --error: #DC3545;
+    
+    /* Legacy color preservation */
     --navy-blue: #002C5F;
     --royal-blue: #0056A4;
     --cyan-blue: #00B5E2;
     --white: #FFFFFF;
-    --light-gray: #F5F5F5;
-    --dark-gray: #333333;
-    --accent-orange: #FF8C42;
+    --light-gray: #F8F9FA;      /* Updated to match surface */
+    --dark-gray: #343E4C;       /* Now uses Oxford Blue */
+    --accent-orange: #FB8928;   /* Now matches Crusta */
+}
 
-    /* Modern component variables (converted from _modern-components.scss) */
+/* Converted variables from src/assets/scss/custom-styles.scss */
+:root {
+    /* Modern component variables */
     --spacing-sm: 0.5rem;
     --spacing-md: 1rem;
     --spacing-lg: 1.5rem;
     --spacing-xl: 3rem;
 
-    --primary: #0E5AF2;
-    --primary-light: #3C7FF4;
     --gradient-primary: linear-gradient(90deg, var(--primary), var(--primary-light));
     --gradient-light: linear-gradient(135deg, var(--background-color), var(--surface-color));
-    --gradient-dark: linear-gradient(135deg, #000814, #0b1226);
+    --gradient-dark: linear-gradient(135deg, var(--dark-background-bg), var(--dark-background-surface));
 
     --radius-full: 9999px;
     --radius-md: 0.5rem;
@@ -55,66 +82,40 @@
     --shadow-md: 0 6px 18px rgba(2,6,23,0.5);
 }
 
-/* Converted component rules (from custom-styles.scss). These are added
-     as plain CSS component rules so templates that still reference the
-     original classnames continue to work during migration. Prefer
-     replacing usages with Tailwind utilities and removing these over time. */
+/* Component rules - converted from SCSS */
 @layer components {
-  /* Core reset and defaults */
-  *, *::before, *::after {
-    box-sizing: border-box;
-  }
-
-  body {
-    font-family: var(--body-font);
-    color: var(--text, #e6eefb);
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  /* Loader animation and styles */
-  .loading-preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--white);
-    z-index: 9999;
-    display: grid;
-    place-items: center;
-  }
-  .loading-preloader .line_shape {
-    width: 50px;
-    height: 3px;
-    margin: 3px;
-    border-radius: var(--radius-full);
-    background: linear-gradient(90deg, rgba(0,0,0,0.06), rgba(0,0,0,0.12));
-    animation: gradientMove 1.2s linear infinite;
-  }
-
-  /* Responsive container fallbacks (preserve behavior of SCSS mixin respond-to) */
-  .container {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1200px;
-  }    .apldg-header-section {
-        background-color: var(--navy-blue);
+    /* Core reset and defaults */
+    *, *::before, *::after {
+        box-sizing: border-box;
     }
 
-    /* Note: component rules for primary buttons, service columns and footer
-       were migrated to Tailwind utilities in templates. Keep other helper
-       rules here while migration continues. */
-}
+    body {
+        font-family: var(--body-font);
+        color: var(--oxford-blue);
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
 
-/* Remove @import statements for migrated files */
+    img {
+        max-width: 100%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .loading-preloader .line_shape {
+        width: 50px;
+        height: 3px;
+        margin: 3px;
+        border-radius: var(--radius-full);
+        background: linear-gradient(90deg, rgba(0,0,0,0.06), rgba(0,0,0,0.12));
+        animation: gradientMove 1.2s linear infinite;
+    }
+
+    .apldg-header-section {
+        background-color: var(--green-vogue);
+    }
+}
 
 /* Preset classes to switch palettes per-section */
 .light-background {
@@ -131,9 +132,10 @@
 html, body {
     height: 100%;
 }
+
 body {
     background-color: var(--background-color) !important;
-    color: #e6eefb;
+    color: var(--oxford-blue);
     font-family: var(--body-font);
 }
 
@@ -150,10 +152,9 @@ body {
 
 /* Make sections default to surface color unless overridden */
 section {
-    background-color: transparent; /* keep existing gradients where present */
+    background-color: transparent;
 }
 
-/* Footer default to dark preset */
 .apldg-footer-section {
     background-color: var(--dark-background-bg);
 }
@@ -178,10 +179,6 @@ section {
         animation: fadeIn 1s ease-in forwards;
     }
     
-    .animate-fade-in-up {
-        animation: fadeInUp 1s ease-out forwards;
-    }
-    
     .animate-gradient {
         background-size: 200% 200%;
         animation: gradientMove 8s ease infinite;
@@ -189,11 +186,6 @@ section {
 
     .animate-glow {
         animation: glow 6s ease-in-out infinite;
-    }
-
-    .animate-glow-delay {
-        animation: glow 6s ease-in-out infinite;
-        animation-delay: 3s;
     }
 }
 
@@ -211,7 +203,7 @@ section {
 
 @keyframes fadeIn {
     from {
-        opacity: 0;
+        box-shadow: 0 10px 30px rgba(251,137,40,0.12);
     }
     to {
         opacity: 1;
@@ -260,21 +252,26 @@ section {
     }
 }
 
-/* Small helpers (use plain CSS so Tailwind @apply is not required).
-     Prefer using Tailwind utility classes in markup; these helpers act as
-     safe fallbacks that use the theme variables. */
+/* Component helper classes */
 .btn-primary {
-    background: linear-gradient(90deg, var(--light-background-bg, #0c114a), var(--surface-color, #131428));
+    background: linear-gradient(90deg, var(--crusta), var(--crusta-light));
     color: #ffffff;
     font-family: var(--ui-font);
     font-weight: 600;
     padding: 0.75rem 1.5rem;
     border-radius: 9999px;
-    box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+    box-shadow: 0 10px 30px rgba(251,137,40,0.3);
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    transition: var(--transition-normal);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(90deg, var(--crusta-dark), var(--crusta));
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(251,137,40,0.4);
 }
 
 .section-gradient {
@@ -288,6 +285,7 @@ section {
     padding-left: 1rem;
     padding-right: 1rem;
 }
+
 @import 'assets/css/animate.css';
 @import 'assets/css/fontawesome-all.css';
 @import 'assets/css/flaticon-11.css';
