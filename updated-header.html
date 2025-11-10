@@ -1,0 +1,35 @@
+<!-- Updated Header Section with White Background Color System -->
+<header id="header" class="fixed w-full z-50 bg-background/95 backdrop-blur-lg border-b border-surface/20">
+	<div class="container mx-auto px-4">
+		<div class="flex items-center justify-between h-20">
+			<div class="w-48">
+				<a href="#" class="flex items-center">
+					<img src="assets/img/logo.png" alt="Synoptiq Globle" class="h-14 w-auto object-contain transition-transform hover:scale-105">
+				</a>
+			</div>
+
+			<nav class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-center px-6">
+				<div class="flex items-center bg-surface/80 rounded-full p-1.5 backdrop-blur-lg border border-oxford-blue/10 w-full max-w-3xl justify-between shadow-lg shadow-oxford-blue/5">
+					<div class="w-16"></div> <!-- Spacer for visual balance -->
+					<div class="flex items-center justify-center gap-2 flex-1">
+						<a href="#apldg_banner" class="px-4 py-2 text-sm font-medium text-green-vogue hover:text-oxford-blue transition rounded-full hover:bg-crusta/10 hover:text-crusta">Home</a>
+						<a href="#apldg_about" class="px-4 py-2 text-sm font-medium text-green-vogue hover:text-oxford-blue transition rounded-full hover:bg-crusta/10 hover:text-crusta">About Us</a>
+						<a href="#apldg_service" class="px-4 py-2 text-sm font-medium text-green-vogue hover:text-oxford-blue transition rounded-full hover:bg-crusta/10 hover:text-crusta">Services</a>
+						<a href="#apldg_technologies" class="px-4 py-2 text-sm font-medium text-green-vogue hover:text-oxford-blue transition rounded-full hover:bg-crusta/10 hover:text-crusta">Technologies</a>
+						<a href="#apldg_certifications" class="px-4 py-2 text-sm font-medium text-green-vogue hover:text-oxford-blue transition rounded-full hover:bg-crusta/10 hover:text-crusta">Certifications</a>
+					</div>
+					<div class="w-16"></div> <!-- Spacer for visual balance -->
+				</div>
+			</nav>
+
+			<div class="w-48 flex items-center justify-end gap-4">
+				<a href="#apldg_git" class="hidden sm:inline-flex items-center px-5 py-2.5 rounded-full bg-crusta text-white font-medium hover:bg-crusta-dark hover:shadow-lg hover:shadow-crusta/25 transition-all duration-200 hover:scale-105">
+					Get In Touch
+				</a>
+				<button (click)="toggleMobileMenu()" aria-label="Toggle menu" class="lg:hidden p-2 rounded-full text-green-vogue hover:text-oxford-blue focus:outline-none hover:bg-crusta/10 transition-colors">
+					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+				</button>
+			</div>
+		</div>
+	</div>
+</header>
