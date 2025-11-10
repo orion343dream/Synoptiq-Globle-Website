@@ -2,290 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Project font variables */
+/* Only essential fonts and Tailwind utilities - all colors via Tailwind classes */
 :root {
     --title-font: 'Exo', sans-serif;
     --body-font: 'Fira Sans', sans-serif;
     --ui-font: 'Red Hat Display', sans-serif;
 }
 
-/* Color theme variables - White Background Optimized */
-:root {
-    /* Core Background Colors */
-    --background-color: #FFFFFF;    /* Primary Background (Pure White) */
-    --surface-color: #F8F9FA;       /* Secondary Background (Subtle off-white for depth) */
-
-    /* Light / Dark presets optimized for white background */
-    --light-background-bg: #FFFFFF;      /* Light preset: Pure white */
-    --light-background-surface: #F8F9FA; /* Light preset: Off-white surface */
-
-    --dark-background-bg: #043056;      /* Dark preset: Green Vogue for dark sections */
-    --dark-background-surface: #343E4C; /* Dark preset: Oxford Blue for dark surfaces */
-
-    /* Header specifics - maintaining white base */
-    --header-container-bg: #FFFFFF; /* Header uses white surface by default */
-    --header-overlay: rgba(4,48,86,0.04); /* Subtle tint using Green Vogue */
-    
-    /* Updated legacy colors */
-    --primary: #FB8928;         /* Now uses Crusta */
-    --primary-light: #FC9B4D;   /* Lighter shade of Crusta */
-    --primary-dark: #E67A1F;    /* Darker shade of Crusta */
-    --text: #343E4C;            /* Now uses Oxford Blue */
-    --dark: #043056;            /* Now uses Green Vogue */
-}
-
-/* New Color System - White Background Optimized */
-:root {
-    /* Primary Action & Accent */
-    --crusta: #FB8928;
-    --crusta-light: #FC9B4D;
-    --crusta-dark: #E67A1F;
-    
-    /* Primary Text & Structure Colors */
-    --green-vogue: #043056;     /* Primary text/main headers */
-    --oxford-blue: #343E4C;     /* Secondary text/subtle elements */
-    
-    /* Secondary Support & Data Visualization */
-    --ming: #345C7C;            /* Secondary buttons/charts */
-    
-    /* System Colors */
-    --success: #4BB543;
-    --warning: #FFC107;
-    --error: #DC3545;
-    
-    /* Legacy color preservation */
-    --navy-blue: #002C5F;
-    --royal-blue: #0056A4;
-    --cyan-blue: #00B5E2;
-    --white: #FFFFFF;
-    --light-gray: #F8F9FA;      /* Updated to match surface */
-    --dark-gray: #343E4C;       /* Now uses Oxford Blue */
-    --accent-orange: #FB8928;   /* Now matches Crusta */
-}
-
-/* Converted variables from src/assets/scss/custom-styles.scss */
-:root {
-    /* Modern component variables */
-    --spacing-sm: 0.5rem;
-    --spacing-md: 1rem;
-    --spacing-lg: 1.5rem;
-    --spacing-xl: 3rem;
-
-    --gradient-primary: linear-gradient(90deg, var(--primary), var(--primary-light));
-    --gradient-light: linear-gradient(135deg, var(--background-color), var(--surface-color));
-    --gradient-dark: linear-gradient(135deg, var(--dark-background-bg), var(--dark-background-surface));
-
-    --radius-full: 9999px;
-    --radius-md: 0.5rem;
-    --transition-normal: 0.3s cubic-bezier(.4,0,.2,1);
-    --transition-fast: 0.15s cubic-bezier(.4,0,.2,1);
-    --shadow-md: 0 6px 18px rgba(2,6,23,0.5);
-}
-
-/* Component rules - converted from SCSS */
+/* Custom Tailwind component classes using the new color system */
 @layer components {
-    /* Core reset and defaults */
-    *, *::before, *::after {
-        box-sizing: border-box;
-    }
-
-    body {
-        font-family: var(--body-font);
-        color: var(--oxford-blue);
-        line-height: 1.6;
-        overflow-x: hidden;
-    }
-
-    img {
-        max-width: 100%;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .loading-preloader .line_shape {
-        width: 50px;
-        height: 3px;
-        margin: 3px;
-        border-radius: var(--radius-full);
-        background: linear-gradient(90deg, rgba(0,0,0,0.06), rgba(0,0,0,0.12));
-        animation: gradientMove 1.2s linear infinite;
-    }
-
-    .apldg-header-section {
-        background-color: var(--green-vogue);
-    }
-}
-
-/* Preset classes to switch palettes per-section */
-.light-background {
-    --background-color: var(--light-background-bg);
-    --surface-color: var(--light-background-surface);
-}
-
-.dark-background {
-    --background-color: var(--dark-background-bg);
-    --surface-color: var(--dark-background-surface);
-}
-
-/* Apply the theme globally */
-html, body {
-    height: 100%;
-}
-
-body {
-    background-color: var(--background-color) !important;
-    color: var(--oxford-blue);
-    font-family: var(--body-font);
-}
-
-/* Surface helper for cards, sections, footers */
-.surface {
-    background-color: var(--surface-color) !important;
-}
-
-/* Header container helper */
-#header .header-bg {
-    background-color: var(--header-container-bg) !important;
-    background: linear-gradient(90deg, var(--header-container-bg), rgba(27,25,51,0.9));
-}
-
-/* Make sections default to surface color unless overridden */
-section {
-    background-color: transparent;
-}
-
-.apldg-footer-section {
-    background-color: var(--dark-background-bg);
-}
-
-@layer utilities {
-    /* Custom animations */
-    .animate-float {
-        animation: float 6s ease-in-out infinite;
+    /* Primary button with Crusta accent on white background */
+    .btn-primary {
+        @apply bg-crusta hover:bg-crusta-dark text-white font-semibold px-6 py-3 rounded-full transition-all duration-300;
+        @apply shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+        @apply hover:shadow-crusta/30;
     }
     
-    .animate-float-delay-1 {
-        animation: float 6s ease-in-out infinite;
-        animation-delay: 2s;
+    /* Text colors optimized for white background */
+    .text-primary {
+        @apply text-green-vogue;
     }
     
-    .animate-float-delay-2 {
-        animation: float 6s ease-in-out infinite;
-        animation-delay: 4s;
+    .text-secondary {
+        @apply text-oxford-blue;
     }
     
-    .animate-fade-in {
-        animation: fadeIn 1s ease-in forwards;
+    .text-ming {
+        @apply text-ming;
     }
     
-    .animate-gradient {
-        background-size: 200% 200%;
-        animation: gradientMove 8s ease infinite;
+    /* Background utilities for white theme */
+    .bg-white-theme {
+        @apply bg-background;
     }
-
-    .animate-glow {
-        animation: glow 6s ease-in-out infinite;
+    
+    .bg-surface-theme {
+        @apply bg-surface;
     }
-}
-
-@keyframes float {
-    0% {
-        transform: translateY(0px);
+    
+    /* Success/Error/Warning states with white background */
+    .text-success {
+        @apply text-success;
     }
-    50% {
-        transform: translateY(-20px);
+    
+    .text-warning {
+        @apply text-warning;
     }
-    100% {
-        transform: translateY(0px);
+    
+    .text-error {
+        @apply text-error;
     }
-}
-
-@keyframes fadeIn {
-    from {
-        box-shadow: 0 10px 30px rgba(251,137,40,0.12);
+    
+    /* Border utilities for white background */
+    .border-primary {
+        @apply border-crusta;
     }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    
+    .border-secondary {
+        @apply border-oxford-blue;
     }
 }
 
-@keyframes gradientMove {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-@keyframes glow {
-    0% {
-        opacity: 0.4;
-        transform: scale(1) translate(0, 0);
-    }
-    33% {
-        opacity: 0.6;
-        transform: scale(1.2) translate(20px, -10px);
-    }
-    66% {
-        opacity: 0.4;
-        transform: scale(0.9) translate(-20px, 10px);
-    }
-    100% {
-        opacity: 0.4;
-        transform: scale(1) translate(0, 0);
-    }
-}
-
-/* Component helper classes */
-.btn-primary {
-    background: linear-gradient(90deg, var(--crusta), var(--crusta-light));
-    color: #ffffff;
-    font-family: var(--ui-font);
-    font-weight: 600;
-    padding: 0.75rem 1.5rem;
-    border-radius: 9999px;
-    box-shadow: 0 10px 30px rgba(251,137,40,0.3);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    transition: var(--transition-normal);
-}
-
-.btn-primary:hover {
-    background: linear-gradient(90deg, var(--crusta-dark), var(--crusta));
-    transform: translateY(-2px);
-    box-shadow: 0 15px 35px rgba(251,137,40,0.4);
-}
-
-.section-gradient {
-    background: linear-gradient(135deg, var(--background-color), var(--surface-color));
-}
-
-.container {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
-
+/* Essential CSS imports for third-party libraries */
 @import 'assets/css/animate.css';
 @import 'assets/css/fontawesome-all.css';
 @import 'assets/css/flaticon-11.css';
