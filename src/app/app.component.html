@@ -37,7 +37,7 @@
 </a>
 
 <!-- Header Section -->
-<header id="header" class="fixed w-[calc(100%-2rem)] z-50 backdrop-blur-lg bg-surface border border-oxford-blue/30 shadow-2xl rounded-2xl mx-4 mt-4">
+<header id="header" class="fixed w-full z-50 backdrop-blur-lg bg-surface border border-oxford-blue/30 shadow-2xl rounded-none">
 	<div class="relative">
 		<!-- Content -->
 		<div class="relative flex items-center justify-between h-20 px-8">
@@ -48,16 +48,15 @@
 				</div>
 
 				<nav class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-center px-6">
-					<div class="flex items-center bg-white/95 rounded-xl p-1.5 backdrop-blur-lg border border-oxford-blue/40 w-full max-w-3xl justify-between shadow-xl">
-						<div class="w-16"></div> <!-- Spacer for visual balance -->
-						<div class="flex items-center justify-center gap-2 flex-1">
-							<a href="#apldg_banner" class="px-4 py-2 text-sm font-medium text-oxford-blue hover:text-crusta transition rounded-full hover:bg-crusta/15 border border-transparent hover:border-crusta/20">Home</a>
-							<a href="#apldg_about" class="px-4 py-2 text-sm font-medium text-oxford-blue hover:text-crusta transition rounded-full hover:bg-crusta/15 border border-transparent hover:border-crusta/20">About Us</a>
-							<a href="#apldg_service" class="px-4 py-2 text-sm font-medium text-oxford-blue hover:text-crusta transition rounded-full hover:bg-crusta/15 border border-transparent hover:border-crusta/20">Services</a>
-							<a href="#apldg_technologies" class="px-4 py-2 text-sm font-medium text-oxford-blue hover:text-crusta transition rounded-full hover:bg-crusta/15 border border-transparent hover:border-crusta/20">Technologies</a>
-							<a href="#apldg_certifications" class="px-4 py-2 text-sm font-medium text-oxford-blue hover:text-crusta transition rounded-full hover:bg-crusta/15 border border-transparent hover:border-crusta/20">Certifications</a>
-						</div>
-						<div class="w-16"></div> <!-- Spacer for visual balance -->
+					<div class="flex items-center gap-2">
+						<a href="#apldg_banner" class="px-4 py-2 text-sm font-medium text-oxford-blue hover:text-crusta transition">Home</a>
+						<a href="#apldg_about" class="px-4 py-2 text-sm font-medium text-oxford-blue hover:text-crusta transition">About Us</a>
+						<a href="#apldg_service" class="px-4 py-2 text-sm font-medium text-oxford-blue hover:text-crusta transition">Services</a>
+						<a href="#apldg_technologies" class="px-4 py-2 text-sm font-medium text-oxford-blue hover:text-crusta transition">Technologies</a>
+						<a href="#apldg_certifications" class="px-4 py-2 text-sm font-medium text-oxford-blue hover:text-crusta transition">Certifications</a>
+						<a href="#meet_our_team" class="px-4 py-2 text-sm font-medium text-oxford-blue hover:text-crusta transition">Our Team</a>
+						<a href="#apldg_skills" class="px-4 py-2 text-sm font-medium text-oxford-blue hover:text-crusta transition">Skills</a>
+						<a href="#apldg_git" class="px-4 py-2 text-sm font-medium text-oxford-blue hover:text-crusta transition">Contact</a>
 					</div>
 				</nav>
 
@@ -121,6 +120,38 @@
 							<span class="font-medium">Technologies</span>
 						</a>
 					</li>
+					<li>
+						<a (click)="toggleMobileMenu()" href="#apldg_certifications" class="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-crusta/10 transition-colors text-oxford-blue">
+							<svg class="w-5 h-5 text-crusta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+							</svg>
+							<span class="font-medium">Certifications</span>
+						</a>
+					</li>
+					<li>
+						<a (click)="toggleMobileMenu()" href="#meet_our_team" class="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-crusta/10 transition-colors text-oxford-blue">
+							<svg class="w-5 h-5 text-crusta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+							</svg>
+							<span class="font-medium">Our Team</span>
+						</a>
+					</li>
+					<li>
+						<a (click)="toggleMobileMenu()" href="#apldg_skills" class="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-crusta/10 transition-colors text-oxford-blue">
+							<svg class="w-5 h-5 text-crusta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+							</svg>
+							<span class="font-medium">Skills</span>
+						</a>
+					</li>
+					<li>
+						<a (click)="toggleMobileMenu()" href="#apldg_git" class="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-crusta/10 transition-colors text-oxford-blue">
+							<svg class="w-5 h-5 text-crusta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+							</svg>
+							<span class="font-medium">Contact</span>
+						</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -154,46 +185,66 @@
                 </div>
             </div>
 
-            <!-- Right Content - Enhanced Modern Hero Design -->
-            <div class="w-full lg:w-1/2 relative">
-                <div class="relative animate-float">
-                    <!-- Prominent background effects -->
-                    <div class="absolute inset-0 bg-gradient-to-br from-crusta/20 via-crusta/5 to-ming/15 rounded-3xl blur-2xl scale-110 animate-pulse"></div>
-                    <div class="absolute inset-0 bg-gradient-to-tr from-ming/10 via-crusta/5 to-orange-600/10 rounded-3xl blur-xl scale-105 animate-glow"></div>
-                    
-                    <!-- Large floating geometric elements -->
-                    <div class="absolute -top-8 -right-12 w-32 h-32 bg-gradient-to-br from-crusta/30 to-crusta/10 rounded-full blur-lg animate-float-delay-1"></div>
-                    <div class="absolute -bottom-12 -left-10 w-28 h-28 bg-gradient-to-br from-ming/30 to-ming/10 rounded-2xl blur-lg animate-float-delay-2"></div>
-                    <div class="absolute top-20 left-4 w-20 h-20 bg-gradient-to-br from-orange-600/20 to-crusta/15 rounded-full blur-md animate-float-delay-1" style="animation-delay: -2s"></div>
-                    
-                    <!-- Additional accent elements -->
-                    <div class="absolute top-4 right-20 w-16 h-16 bg-gradient-to-br from-crusta/25 to-orange-600/15 rounded-full blur-sm animate-float-delay-2" style="animation-delay: -1s"></div>
-                    <div class="absolute bottom-8 right-8 w-24 h-24 bg-gradient-to-br from-ming/20 to-crusta/10 rounded-lg blur-md animate-float-delay-1" style="animation-delay: -3s"></div>
-                    
-                    <!-- Outer glow rings -->
-                    <div class="absolute inset-0 bg-gradient-to-r from-crusta/8 to-ming/8 rounded-3xl blur-3xl scale-110 animate-glow"></div>
-                    <div class="absolute inset-2 bg-gradient-to-tr from-crusta/5 to-ming/5 rounded-3xl blur-2xl scale-105 animate-glow-delay"></div>
-                    
-                    <!-- Main image container with enhanced effects -->
-                    <div class="relative z-20 p-8">
-                        <div class="relative group">
-                            <!-- Image background with multiple layers -->
-                            <div class="absolute inset-0 bg-gradient-to-br from-crusta/10 via-white/5 to-ming/10 rounded-2xl blur-sm transform group-hover:scale-105 transition-transform duration-500"></div>
-                            
-                            <!-- Main image with enhanced styling -->
-                            <img src="assets/img/slider/01.png" alt="Digital Transformation" class="relative w-full max-w-2xl mx-auto rounded-2xl shadow-2xl transform group-hover:scale-105 transition-transform duration-500" loading="eager" decoding="async" fetchpriority="high">
-                            
-                            <!-- Enhanced image overlay effects -->
-                            <div class="absolute inset-0 bg-gradient-to-tl from-crusta/8 via-transparent to-ming/8 rounded-2xl opacity-60"></div>
-                            <div class="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-crusta/10 rounded-2xl"></div>
-                        </div>
-                    </div>
-                    
-                    <!-- Accent sparkles -->
-                    <div class="absolute top-16 right-16 w-3 h-3 bg-crusta rounded-full blur-sm animate-pulse opacity-80"></div>
-                    <div class="absolute bottom-20 left-16 w-2 h-2 bg-ming rounded-full blur-sm animate-pulse opacity-60" style="animation-delay: 0.5s"></div>
-                    <div class="absolute top-32 left-32 w-2.5 h-2.5 bg-crusta rounded-full blur-sm animate-pulse opacity-70" style="animation-delay: 1s"></div>
+            <!-- Right Content - 3D Enhanced Modern Hero Design -->
+            <div class="w-full lg:w-1/2 relative" style="perspective: 1000px;">
+                <!-- 3D Background with depth layers -->
+                <div class="absolute inset-0" style="transform-style: preserve-3d;">
+                    <!-- Back layer - distant -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-crusta/10 via-crusta/5 to-ming/8 rounded-3xl blur-3xl scale-120 animate-pulse" style="transform: translateZ(-100px) rotateX(5deg);"></div>
+
+                    <!-- Middle layer - medium depth -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-ming/15 via-crusta/8 to-orange-600/12 rounded-3xl blur-2xl scale-115 animate-glow" style="transform: translateZ(-50px) rotateX(3deg) rotateY(-2deg);"></div>
+
+                    <!-- Front layer - close depth -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-crusta/20 to-ming/15 rounded-3xl blur-xl scale-110 animate-glow-delay" style="transform: translateZ(-25px) rotateX(2deg) rotateY(1deg);"></div>
                 </div>
+
+                <!-- Floating geometric elements with 3D depth -->
+                <div class="absolute -top-8 -right-12 w-32 h-32 bg-gradient-to-br from-crusta/30 to-crusta/10 rounded-full blur-lg animate-float-delay-1" style="transform: translateZ(20px) rotateX(-5deg);"></div>
+                <div class="absolute -bottom-12 -left-10 w-28 h-28 bg-gradient-to-br from-ming/30 to-ming/10 rounded-2xl blur-lg animate-float-delay-2" style="transform: translateZ(30px) rotateY(10deg);"></div>
+                <div class="absolute top-20 left-4 w-20 h-20 bg-gradient-to-br from-orange-600/20 to-crusta/15 rounded-full blur-md animate-float-delay-1" style="transform: translateZ(15px) rotateX(8deg);" animation-delay="-2s"></div>
+
+                <!-- Additional accent elements with depth -->
+                <div class="absolute top-4 right-20 w-16 h-16 bg-gradient-to-br from-crusta/25 to-orange-600/15 rounded-full blur-sm animate-float-delay-2" style="transform: translateZ(25px);" animation-delay="-1s"></div>
+                <div class="absolute bottom-8 right-8 w-24 h-24 bg-gradient-to-br from-ming/20 to-crusta/10 rounded-lg blur-md animate-float-delay-1" style="transform: translateZ(10px);" animation-delay="-3s"></div>
+
+                <!-- 3D Billboard-style Main image container (facing hero section) -->
+                <div class="relative z-20 p-8" style="transform-style: preserve-3d; perspective: 1200px;">
+                    <div class="relative group" style="transform: rotateY(-35deg) rotateX(8deg) translateZ(60px); transform-origin: center;">
+                        <!-- Ground shadow effect for billboard -->
+                        <div class="absolute inset-0 bg-black/30 blur-3xl" style="transform: translateY(50px) translateX(15px) scaleX(1.2) scaleY(0.25) rotateX(90deg); filter: blur(30px);"></div>
+
+                        <!-- Side shadow for depth (visible side) -->
+                        <div class="absolute inset-0 bg-black/20 blur-2xl" style="transform: translateX(30px) translateZ(-15px) scaleY(1.1) rotateY(10deg); filter: blur(25px);"></div>
+
+                        <!-- Image background with 3D billboard lighting -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-crusta/20 via-white/15 to-ming/20 rounded-2xl blur-md" style="transform: translateZ(15px) rotateY(2deg);"></div>
+
+                        <!-- Main image with billboard-style 3D transformation (facing front) -->
+                        <img src="assets/img/slider/01.png" alt="Digital Transformation" class="relative w-full max-w-2xl mx-auto rounded-2xl shadow-2xl" style="transform: translateZ(25px) rotateY(3deg); filter: drop-shadow(0 40px 80px rgba(0,0,0,0.3)) drop-shadow(25px 20px 60px rgba(0,0,0,0.2)) drop-shadow(0 0 0 rgba(0,0,0,0.1));" loading="eager" decoding="async" fetchpriority="high">
+
+                        <!-- Billboard-style lighting overlays -->
+                        <div class="absolute inset-0 bg-gradient-to-tr from-white/25 via-transparent to-crusta/20 rounded-2xl" style="transform: translateZ(20px) rotateY(2deg);"></div>
+                        <div class="absolute inset-0 bg-gradient-to-bl from-transparent via-ming/15 to-transparent rounded-2xl" style="transform: translateZ(18px) rotateY(1deg);"></div>
+
+                        <!-- 3D edge highlights for billboard effect -->
+                        <div class="absolute top-0 left-0 w-full h-8 bg-gradient-to-b from-white/30 to-transparent rounded-t-2xl" style="transform: translateZ(22px) rotateY(3deg);"></div>
+                        <div class="absolute bottom-0 right-0 w-1/3 h-6 bg-gradient-to-t from-black/20 to-transparent rounded-br-2xl" style="transform: translateZ(19px) rotateY(1deg);"></div>
+
+                        <!-- Perspective lines for depth -->
+                        <div class="absolute top-4 left-4 w-px h-full bg-gradient-to-b from-crusta/40 to-transparent" style="transform: translateZ(21px) rotateY(4deg);"></div>
+                        <div class="absolute top-4 right-4 w-px h-full bg-gradient-to-b from-ming/40 to-transparent" style="transform: translateZ(21px) rotateY(4deg);"></div>
+                    </div>
+                </div>
+
+                <!-- 3D Accent sparkles with depth -->
+                <div class="absolute top-16 right-16 w-3 h-3 bg-crusta rounded-full blur-sm animate-pulse opacity-80" style="transform: translateZ(40px);"></div>
+                <div class="absolute bottom-20 left-16 w-2 h-2 bg-ming rounded-full blur-sm animate-pulse opacity-60" style="transform: translateZ(35px);" animation-delay="0.5s"></div>
+                <div class="absolute top-32 left-32 w-2.5 h-2.5 bg-crusta rounded-full blur-sm animate-pulse opacity-70" style="transform: translateZ(45px);" animation-delay="1s"></div>
+
+                <!-- Additional 3D floating particles -->
+                <div class="absolute top-8 left-8 w-1 h-1 bg-crusta rounded-full animate-ping opacity-60" style="transform: translateZ(50px);" animation-delay="2s"></div>
+                <div class="absolute bottom-16 right-16 w-1.5 h-1.5 bg-ming rounded-full animate-ping opacity-50" style="transform: translateZ(55px);" animation-delay="3s"></div>
             </div>
         </div>
 
@@ -209,171 +260,6 @@
 </section>
 
 
-
-	<!-- Enhanced Why Choose Us Section -->
-	<section class="relative py-20 overflow-hidden bg-background">
-		<!-- Background decorative elements -->
-		<div class="absolute -left-20 -top-20">
-			<div class="w-40 h-40 bg-gradient-to-br from-crusta/10 to-ming/5 rounded-full blur-3xl"></div>
-		</div>
-		<div class="absolute right-0 top-1/4">
-			<div class="w-32 h-32 bg-gradient-to-br from-ming/10 to-crusta/5 rounded-full blur-2xl"></div>
-		</div>
-		<div class="absolute -left-10 bottom-1/4">
-			<div class="w-24 h-24 bg-gradient-to-br from-crusta/15 to-orange-600/10 rounded-full blur-xl"></div>
-		</div>
-		
-		<div class="container mx-auto px-4 relative z-10">
-			<!-- Section Header -->
-			<div class="text-center mb-16">
-				<span class="inline-block px-6 py-3 bg-gradient-to-r from-crusta/20 to-ming/20 text-crusta rounded-full text-sm font-semibold mb-6 border border-crusta/30">
-					Why Choose Us
-				</span>
-				<h3 class="text-3xl md:text-5xl font-bold mb-6 text-green-vogue max-w-4xl mx-auto">
-					Empowering Digital Excellence Through Innovation
-				</h3>
-				<p class="text-oxford-blue text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
-					We implement cutting-edge technologies and proven methodologies to transform your business processes, ensuring scalable, secure, and efficient digital solutions.
-				</p>
-			</div>
-
-			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-				<!-- Left Column - Service Cards -->
-				<div class="lg:col-span-7">
-					<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-						<!-- Containerization -->
-						<div class="group relative">
-							<div class="absolute -inset-1 bg-gradient-to-br from-crusta/20 to-ming/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
-							<div class="relative bg-surface/80 backdrop-blur-lg p-8 rounded-2xl border border-oxford-blue/20 hover:border-crusta/30 transition-all duration-300 hover:transform hover:-translate-y-2">
-								<div class="w-20 h-20 flex items-center justify-center rounded-2xl bg-gradient-to-br from-crusta to-ming mb-6 group-hover:scale-110 transition-transform duration-300">
-									<i class="flaticon-projects text-white text-3xl"></i>
-								</div>
-								<h6 class="text-xl font-bold mb-4 text-green-vogue group-hover:text-crusta transition-colors">
-									<a href="#">Containerization</a>
-								</h6>
-								<p class="text-oxford-blue leading-relaxed">
-									Seamlessly transition workloads to containerized environments with optimized cloud deployment strategies for enhanced scalability and efficiency.
-								</p>
-							</div>
-						</div>
-
-						<!-- Modernization -->
-						<div class="group relative mt-8 md:mt-0">
-							<div class="absolute -inset-1 bg-gradient-to-br from-ming/20 to-crusta/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
-							<div class="relative bg-surface/80 backdrop-blur-lg p-8 rounded-2xl border border-oxford-blue/20 hover:border-ming/30 transition-all duration-300 hover:transform hover:-translate-y-2">
-								<div class="w-20 h-20 flex items-center justify-center rounded-2xl bg-gradient-to-br from-ming to-crusta mb-6 group-hover:scale-110 transition-transform duration-300">
-									<i class="flaticon-planet-earth text-white text-3xl"></i>
-								</div>
-								<h6 class="text-xl font-bold mb-4 text-green-vogue group-hover:text-ming transition-colors">
-									<a href="#">Application Modernization</a>
-								</h6>
-								<p class="text-oxford-blue leading-relaxed">
-									Transform legacy systems with cloud migration, microservices architecture, and modern technology stacks for enhanced performance and maintainability.
-								</p>
-							</div>
-						</div>
-
-						<!-- DevOps/DevSecOps -->
-						<div class="group relative">
-							<div class="absolute -inset-1 bg-gradient-to-br from-crusta/20 to-ming/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
-							<div class="relative bg-surface/80 backdrop-blur-lg p-8 rounded-2xl border border-oxford-blue/20 hover:border-crusta/30 transition-all duration-300 hover:transform hover:-translate-y-2">
-								<div class="w-20 h-20 flex items-center justify-center rounded-2xl bg-gradient-to-br from-crusta to-ming mb-6 group-hover:scale-110 transition-transform duration-300">
-									<i class="flaticon-concept text-white text-3xl"></i>
-								</div>
-								<h6 class="text-xl font-bold mb-4 text-green-vogue group-hover:text-crusta transition-colors">
-									<a href="#">DevOps & DevSecOps</a>
-								</h6>
-								<p class="text-oxford-blue leading-relaxed">
-									Streamline development workflows with automated deployment, integrated security practices, and comprehensive infrastructure management solutions.
-								</p>
-							</div>
-						</div>
-
-						<!-- Software Solutions -->
-						<div class="group relative mt-8 md:mt-0">
-							<div class="absolute -inset-1 bg-gradient-to-br from-ming/20 to-crusta/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
-							<div class="relative bg-surface/80 backdrop-blur-lg p-8 rounded-2xl border border-oxford-blue/20 hover:border-ming/30 transition-all duration-300 hover:transform hover:-translate-y-2">
-								<div class="w-20 h-20 flex items-center justify-center rounded-2xl bg-gradient-to-br from-ming to-crusta mb-6 group-hover:scale-110 transition-transform duration-300">
-									<i class="flaticon-app text-white text-3xl"></i>
-								</div>
-								<h6 class="text-xl font-bold mb-4 text-green-vogue group-hover:text-ming transition-colors">
-									<a href="#">Custom Solutions</a>
-								</h6>
-								<p class="text-oxford-blue leading-relaxed">
-									Delivering tailored application architecture and consulting services designed to address specific business challenges and requirements.
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Right Column - Statistics & CTA -->
-				<div class="lg:col-span-5">
-					<div class="bg-gradient-to-br from-surface/90 to-background/90 backdrop-blur-lg rounded-3xl p-8 border border-oxford-blue/20 shadow-2xl">
-						<div class="text-center mb-8">
-							<h4 class="text-2xl md:text-3xl font-bold text-green-vogue mb-4">
-								Excellence in Numbers
-							</h4>
-							<p class="text-oxford-blue">
-								Proven track record of delivering exceptional results
-							</p>
-						</div>
-
-						<!-- Stats Grid -->
-						<div class="grid grid-cols-2 gap-6 mb-8">
-							<div class="text-center">
-								<div class="text-3xl font-bold text-crusta mb-2">99%</div>
-								<div class="text-sm text-oxford-blue">Success Rate</div>
-							</div>
-							<div class="text-center">
-								<div class="text-3xl font-bold text-ming mb-2">24/7</div>
-								<div class="text-sm text-oxford-blue">Support</div>
-							</div>
-							<div class="text-center">
-								<div class="text-3xl font-bold text-crusta mb-2">200+</div>
-								<div class="text-sm text-oxford-blue">Projects</div>
-							</div>
-							<div class="text-center">
-								<div class="text-3xl font-bold text-ming mb-2">50+</div>
-								<div class="text-sm text-oxford-blue">Technologies</div>
-							</div>
-						</div>
-
-						<!-- Key Benefits -->
-						<div class="space-y-4 mb-8">
-							<div class="flex items-center gap-3">
-								<div class="w-2 h-2 bg-crusta rounded-full"></div>
-								<span class="text-oxford-blue text-sm">Proven agile methodologies</span>
-							</div>
-							<div class="flex items-center gap-3">
-								<div class="w-2 h-2 bg-ming rounded-full"></div>
-								<span class="text-oxford-blue text-sm">Enhanced security integration</span>
-							</div>
-							<div class="flex items-center gap-3">
-								<div class="w-2 h-2 bg-crusta rounded-full"></div>
-								<span class="text-oxford-blue text-sm">Streamlined deployment processes</span>
-							</div>
-							<div class="flex items-center gap-3">
-								<div class="w-2 h-2 bg-ming rounded-full"></div>
-								<span class="text-oxford-blue text-sm">Scalable cloud solutions</span>
-							</div>
-						</div>
-
-						<!-- CTA Button -->
-						<div class="text-center">
-							<a href="#" class="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-crusta to-ming text-white rounded-2xl font-semibold hover:shadow-2xl hover:shadow-crusta/30 hover:scale-105 transition-all duration-300">
-								<span>Get Started Today</span>
-								<svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-								</svg>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Enhanced Why Choose Us End -->
 
 	<!-- Enhanced About Us Section Following Theme -->
 	<section class="relative py-20 overflow-hidden bg-background" id="apldg_about">
@@ -542,6 +428,171 @@
 		</div>
 	</section>
 	<!-- Enhanced About Us Section End -->
+
+	<!-- Enhanced Why Choose Us Section -->
+	<section class="relative py-20 overflow-hidden bg-background">
+		<!-- Background decorative elements -->
+		<div class="absolute -left-20 -top-20">
+			<div class="w-40 h-40 bg-gradient-to-br from-crusta/10 to-ming/5 rounded-full blur-3xl"></div>
+		</div>
+		<div class="absolute right-0 top-1/4">
+			<div class="w-32 h-32 bg-gradient-to-br from-ming/10 to-crusta/5 rounded-full blur-2xl"></div>
+		</div>
+		<div class="absolute -left-10 bottom-1/4">
+			<div class="w-24 h-24 bg-gradient-to-br from-crusta/15 to-orange-600/10 rounded-full blur-xl"></div>
+		</div>
+		
+		<div class="container mx-auto px-4 relative z-10">
+			<!-- Section Header -->
+			<div class="text-center mb-16">
+				<span class="inline-block px-6 py-3 bg-gradient-to-r from-crusta/20 to-ming/20 text-crusta rounded-full text-sm font-semibold mb-6 border border-crusta/30">
+					Why Choose Us
+				</span>
+				<h3 class="text-3xl md:text-5xl font-bold mb-6 text-green-vogue max-w-4xl mx-auto">
+					Empowering Digital Excellence Through Innovation
+				</h3>
+				<p class="text-oxford-blue text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
+					We implement cutting-edge technologies and proven methodologies to transform your business processes, ensuring scalable, secure, and efficient digital solutions.
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+				<!-- Left Column - Service Cards -->
+				<div class="lg:col-span-7">
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+						<!-- Containerization -->
+						<div class="group relative">
+							<div class="absolute -inset-1 bg-gradient-to-br from-crusta/20 to-ming/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+							<div class="relative bg-surface/80 backdrop-blur-lg p-8 rounded-2xl border border-oxford-blue/20 hover:border-crusta/30 transition-all duration-300 hover:transform hover:-translate-y-2">
+								<div class="w-20 h-20 flex items-center justify-center rounded-2xl bg-gradient-to-br from-crusta to-ming mb-6 group-hover:scale-110 transition-transform duration-300">
+									<i class="flaticon-projects text-white text-3xl"></i>
+								</div>
+								<h6 class="text-xl font-bold mb-4 text-green-vogue group-hover:text-crusta transition-colors">
+									<a href="#">Containerization</a>
+								</h6>
+								<p class="text-oxford-blue leading-relaxed">
+									Seamlessly transition workloads to containerized environments with optimized cloud deployment strategies for enhanced scalability and efficiency.
+								</p>
+							</div>
+						</div>
+
+						<!-- Modernization -->
+						<div class="group relative mt-8 md:mt-0">
+							<div class="absolute -inset-1 bg-gradient-to-br from-ming/20 to-crusta/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+							<div class="relative bg-surface/80 backdrop-blur-lg p-8 rounded-2xl border border-oxford-blue/20 hover:border-ming/30 transition-all duration-300 hover:transform hover:-translate-y-2">
+								<div class="w-20 h-20 flex items-center justify-center rounded-2xl bg-gradient-to-br from-ming to-crusta mb-6 group-hover:scale-110 transition-transform duration-300">
+									<i class="flaticon-planet-earth text-white text-3xl"></i>
+								</div>
+								<h6 class="text-xl font-bold mb-4 text-green-vogue group-hover:text-ming transition-colors">
+									<a href="#">Application Modernization</a>
+								</h6>
+								<p class="text-oxford-blue leading-relaxed">
+									Transform legacy systems with cloud migration, microservices architecture, and modern technology stacks for enhanced performance and maintainability.
+								</p>
+							</div>
+						</div>
+
+						<!-- DevOps/DevSecOps -->
+						<div class="group relative">
+							<div class="absolute -inset-1 bg-gradient-to-br from-crusta/20 to-ming/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+							<div class="relative bg-surface/80 backdrop-blur-lg p-8 rounded-2xl border border-oxford-blue/20 hover:border-crusta/30 transition-all duration-300 hover:transform hover:-translate-y-2">
+								<div class="w-20 h-20 flex items-center justify-center rounded-2xl bg-gradient-to-br from-crusta to-ming mb-6 group-hover:scale-110 transition-transform duration-300">
+									<i class="flaticon-concept text-white text-3xl"></i>
+								</div>
+								<h6 class="text-xl font-bold mb-4 text-green-vogue group-hover:text-crusta transition-colors">
+									<a href="#">DevOps & DevSecOps</a>
+								</h6>
+								<p class="text-oxford-blue leading-relaxed">
+									Streamline development workflows with automated deployment, integrated security practices, and comprehensive infrastructure management solutions.
+								</p>
+							</div>
+						</div>
+
+						<!-- Software Solutions -->
+						<div class="group relative mt-8 md:mt-0">
+							<div class="absolute -inset-1 bg-gradient-to-br from-ming/20 to-crusta/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+							<div class="relative bg-surface/80 backdrop-blur-lg p-8 rounded-2xl border border-oxford-blue/20 hover:border-ming/30 transition-all duration-300 hover:transform hover:-translate-y-2">
+								<div class="w-20 h-20 flex items-center justify-center rounded-2xl bg-gradient-to-br from-ming to-crusta mb-6 group-hover:scale-110 transition-transform duration-300">
+									<i class="flaticon-app text-white text-3xl"></i>
+								</div>
+								<h6 class="text-xl font-bold mb-4 text-green-vogue group-hover:text-ming transition-colors">
+									<a href="#">Custom Solutions</a>
+								</h6>
+								<p class="text-oxford-blue leading-relaxed">
+									Delivering tailored application architecture and consulting services designed to address specific business challenges and requirements.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Right Column - Statistics & CTA -->
+				<div class="lg:col-span-5">
+					<div class="bg-gradient-to-br from-surface/90 to-background/90 backdrop-blur-lg rounded-3xl p-8 border border-oxford-blue/20 shadow-2xl">
+						<div class="text-center mb-8">
+							<h4 class="text-2xl md:text-3xl font-bold text-green-vogue mb-4">
+								Excellence in Numbers
+							</h4>
+							<p class="text-oxford-blue">
+								Proven track record of delivering exceptional results
+							</p>
+						</div>
+
+						<!-- Stats Grid -->
+						<div class="grid grid-cols-2 gap-6 mb-8">
+							<div class="text-center">
+								<div class="text-3xl font-bold text-crusta mb-2">99%</div>
+								<div class="text-sm text-oxford-blue">Success Rate</div>
+							</div>
+							<div class="text-center">
+								<div class="text-3xl font-bold text-ming mb-2">24/7</div>
+								<div class="text-sm text-oxford-blue">Support</div>
+							</div>
+							<div class="text-center">
+								<div class="text-3xl font-bold text-crusta mb-2">200+</div>
+								<div class="text-sm text-oxford-blue">Projects</div>
+							</div>
+							<div class="text-center">
+								<div class="text-3xl font-bold text-ming mb-2">50+</div>
+								<div class="text-sm text-oxford-blue">Technologies</div>
+							</div>
+						</div>
+
+						<!-- Key Benefits -->
+						<div class="space-y-4 mb-8">
+							<div class="flex items-center gap-3">
+								<div class="w-2 h-2 bg-crusta rounded-full"></div>
+								<span class="text-oxford-blue text-sm">Proven agile methodologies</span>
+							</div>
+							<div class="flex items-center gap-3">
+								<div class="w-2 h-2 bg-ming rounded-full"></div>
+								<span class="text-oxford-blue text-sm">Enhanced security integration</span>
+							</div>
+							<div class="flex items-center gap-3">
+								<div class="w-2 h-2 bg-crusta rounded-full"></div>
+								<span class="text-oxford-blue text-sm">Streamlined deployment processes</span>
+							</div>
+							<div class="flex items-center gap-3">
+								<div class="w-2 h-2 bg-ming rounded-full"></div>
+								<span class="text-oxford-blue text-sm">Scalable cloud solutions</span>
+							</div>
+						</div>
+
+						<!-- CTA Button -->
+						<div class="text-center">
+							<a href="#" class="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-crusta to-ming text-white rounded-2xl font-semibold hover:shadow-2xl hover:shadow-crusta/30 hover:scale-105 transition-all duration-300">
+								<span>Get Started Today</span>
+								<svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+								</svg>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Enhanced Why Choose Us End -->
 
 <!-- Enhanced Services Section Following Theme -->
 <section class="relative py-20 overflow-hidden bg-background" id="apldg_service">
