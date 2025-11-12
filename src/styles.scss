@@ -1,71 +1,197 @@
-@tailwind base;
+a@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Only essential fonts and Tailwind utilities - all colors via Tailwind classes */
+/* Optimized Base Styles */
 :root {
     --title-font: 'Exo', sans-serif;
     --body-font: 'Fira Sans', sans-serif;
     --ui-font: 'Red Hat Display', sans-serif;
 }
 
-/* Custom Tailwind component classes using the new color system */
-@layer components {
-    /* Primary button with Crusta accent on white background */
-    .btn-primary {
-        @apply bg-crusta hover:bg-crusta-dark text-white font-semibold px-6 py-3 rounded-full transition-all duration-300;
-        @apply shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
-        @apply hover:shadow-crusta/30;
+/* Global Animations and Keyframes - Consolidated for Performance */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
     }
-    
-    /* Text colors optimized for white background */
-    .text-primary {
-        @apply text-green-vogue;
-    }
-    
-    .text-secondary {
-        @apply text-oxford-blue;
-    }
-    
-    .text-ming {
-        @apply text-ming;
-    }
-    
-    /* Background utilities for white theme */
-    .bg-white-theme {
-        @apply bg-background;
-    }
-    
-    .bg-surface-theme {
-        @apply bg-surface;
-    }
-    
-    /* Success/Error/Warning states with white background */
-    .text-success {
-        @apply text-success;
-    }
-    
-    .text-warning {
-        @apply text-warning;
-    }
-    
-    .text-error {
-        @apply text-error;
-    }
-    
-    /* Border utilities for white background */
-    .border-primary {
-        @apply border-crusta;
-    }
-    
-    .border-secondary {
-        @apply border-oxford-blue;
+    50% {
+        transform: translateY(-20px);
     }
 }
 
-/* Essential CSS imports for third-party libraries */
-@import 'assets/css/animate.css';
-@import 'assets/css/fontawesome-all.css';
-@import 'assets/css/flaticon-11.css';
-@import 'assets/css/owl.carousel.css';
-@import 'assets/css/main.css';
+@keyframes float-delay-1 {
+    0%, 100% {
+        transform: translateY(0px) translateX(0px);
+    }
+    50% {
+        transform: translateY(-15px) translateX(10px);
+    }
+}
+
+@keyframes float-delay-2 {
+    0%, 100% {
+        transform: translateY(0px) translateX(0px);
+    }
+    50% {
+        transform: translateY(-25px) translateX(-10px);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.1);
+    }
+}
+
+@keyframes glow-delay {
+    0%, 100% {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.4;
+        transform: scale(1.15);
+    }
+}
+
+@keyframes gradient {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation Utility Classes - Reduced Redundancy */
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delay-1 {
+    animation: float-delay-1 8s ease-in-out infinite;
+}
+
+.animate-float-delay-2 {
+    animation: float-delay-2 10s ease-in-out infinite;
+}
+
+.animate-glow {
+    animation: glow 8s ease-in-out infinite;
+}
+
+.animate-glow-delay {
+    animation: glow-delay 10s ease-in-out infinite;
+}
+
+.animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 5s ease infinite;
+}
+
+.animate-fade-in {
+    animation: fade-in 1s ease-out;
+}
+
+.animate-fade-in-up {
+    animation: fade-in-up 1s ease-out 0.3s both;
+}
+
+/* Custom Animations for Enhanced Interactions */
+@keyframes pulse-slow {
+    0%, 100% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scale-in {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Utility Classes */
+.animate-pulse-slow {
+    animation: pulse-slow 3s ease-in-out infinite;
+}
+
+.animate-slide-up {
+    animation: slide-up 0.6s ease-out;
+}
+
+.animate-scale-in {
+    animation: scale-in 0.4s ease-out;
+}
+
+/* Performance Optimizations */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Progress bar animation for skills section */
+@keyframes fillProgress {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: var(--progress-width, 90%);
+    }
+}

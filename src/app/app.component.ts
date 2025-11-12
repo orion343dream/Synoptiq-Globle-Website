@@ -12,26 +12,34 @@ export class AppComponent implements OnInit {
   mobileMenuOpen = false;
 
   ngOnInit() {
-    // Handle preloader
+    // Handle loading screen
     window.addEventListener('load', () => {
-      const preloader = document.getElementById('preloader');
+      const loadingScreen = document.getElementById('loadingScreen');
       setTimeout(() => {
-        if (preloader) {
-          preloader.classList.add('hidden');
-          this.isLoading = false;
+        if (loadingScreen) {
+          loadingScreen.style.opacity = '0';
+          loadingScreen.style.transition = 'opacity 0.5s ease-out';
+          setTimeout(() => {
+            loadingScreen.style.display = 'none';
+            this.isLoading = false;
+          }, 500);
         }
-      }, 1500); // Show loader for 1.5s for better UX
+      }, 1000); // Show loader for 1s for better UX
     });
 
-    // Trigger preloader hide even if load event already fired
+    // Trigger loading screen hide even if load event already fired
     if (document.readyState === 'complete') {
-      const preloader = document.getElementById('preloader');
+      const loadingScreen = document.getElementById('loadingScreen');
       setTimeout(() => {
-        if (preloader) {
-          preloader.classList.add('hidden');
-          this.isLoading = false;
+        if (loadingScreen) {
+          loadingScreen.style.opacity = '0';
+          loadingScreen.style.transition = 'opacity 0.5s ease-out';
+          setTimeout(() => {
+            loadingScreen.style.display = 'none';
+            this.isLoading = false;
+          }, 500);
         }
-      }, 1500);
+      }, 1000);
     }
   }
 
