@@ -4,9 +4,17 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --configuration production",
+    "build:dev": "ng build --configuration development",
+    "build:staging": "ng build --configuration staging",
+    "build:prod": "ng build --configuration production",
+    "serve:dev": "ng serve --configuration development",
+    "serve:prod": "ng serve --configuration production",
+    "serve:staging": "ng serve --configuration staging",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy:s3": "npm run build:prod && aws s3 sync dist/synoptiq-globle s3://your-bucket-name --delete",
+    "deploy:vercel": "npm run build:prod && vercel --prod"
   },
   "private": true,
   "dependencies": {

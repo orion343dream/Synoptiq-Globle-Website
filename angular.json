@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "docs",
+            "outputPath": "dist/synoptiq-globle",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -49,7 +49,24 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "baseHref": "/"
+            },
+            "staging": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all",
+              "baseHref": "/"
             },
             "development": {
               "buildOptimizer": false,
@@ -57,7 +74,8 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "baseHref": "/"
             }
           },
           "defaultConfiguration": "production"
@@ -65,11 +83,16 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "design-lab-app:build"
+            "browserTarget": "design-lab-app:build",
+            "port": 4200,
+            "host": "localhost"
           },
           "configurations": {
             "production": {
               "browserTarget": "design-lab-app:build:production"
+            },
+            "staging": {
+              "browserTarget": "design-lab-app:build:staging"
             },
             "development": {
               "browserTarget": "design-lab-app:build:development"
