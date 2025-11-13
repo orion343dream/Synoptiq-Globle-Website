@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "design-lab-app": {
+    "synoptiq-globle": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -83,19 +83,19 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "design-lab-app:build",
+            "browserTarget": "synoptiq-globle:build",
             "port": 4200,
             "host": "localhost"
           },
           "configurations": {
             "production": {
-              "browserTarget": "design-lab-app:build:production"
+              "browserTarget": "synoptiq-globle:build:production"
             },
             "staging": {
-              "browserTarget": "design-lab-app:build:staging"
+              "browserTarget": "synoptiq-globle:build:staging"
             },
             "development": {
-              "browserTarget": "design-lab-app:build:development"
+              "browserTarget": "synoptiq-globle:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -103,7 +103,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "design-lab-app:build"
+            "buildTarget": "synoptiq-globle:build"
           }
         },
         "test": {
