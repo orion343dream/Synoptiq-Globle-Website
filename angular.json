@@ -33,7 +33,7 @@
               "src/styles.scss"
             ],
             "scripts": [],
-            "baseHref": "/synoptiqsloble/"
+            "baseHref": "/"
           },
           "configurations": {
             "production": {
